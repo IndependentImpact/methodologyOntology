@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Methodology ontology (core) — Ontology Documentation</title>
+  <style>
+    :root {
+      --bg: #fff;
+      --fg: #111;
+      --muted: #555;
+      --line: #e5e7eb;
+      --accent: #2563eb;
+      --code-bg: #f3f4f6;
+      /* Semantic accents */
+      --def-accent: #0ea5e9;  /* cyan */
+      --def-bg: #f0f9ff;
+      --ex-accent: #10b981;   /* green */
+      --ex-bg: #ecfdf5;
+      --desc-accent: #a855f7; /* purple */
+      --desc-bg: #f5f3ff;
+    }
+    html, body { background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, sans-serif; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+    header { margin-bottom: 2rem; border-bottom: 1px solid var(--line); padding-bottom: 1rem; }
+    h1 { font-size: 1.75rem; margin: 0 0 .25rem; }
+    .iri { color: var(--muted); word-break: break-all; }
+    .desc { margin-top: .75rem; font-size: 1.05rem; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+    section { border: 1px solid var(--line); border-radius: 8px; padding: 1rem; }
+    h2 { font-size: 1.25rem; margin: 0 0 .5rem; }
+    h3 { font-size: 1.05rem; margin: .5rem 0; }
+    .item { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1rem; }
+    .item:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+    .meta { font-size: .95rem; color: var(--muted); }
+    .kv { display: grid; grid-template-columns: 160px 1fr; gap: .25rem .75rem; margin-top: .5rem; }
+    .kv div.key { color: var(--muted); }
+    code { background: var(--code-bg); padding: .1rem .25rem; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: .9em; }
+    .badge { display: inline-block; font-size: .75rem; padding: .1rem .4rem; border-radius: .5rem; color: #fff; margin-right: .5rem; }
+    .badge--def { background: var(--def-accent); }
+    .badge--ex { background: var(--ex-accent); }
+    .badge--desc { background: var(--desc-accent); }
+    .defblock { padding: .5rem .75rem; border-radius: 4px; margin: .5rem 0 .75rem; border-left: 4px solid transparent; }
+    .defblock--def { border-left-color: var(--def-accent); background: var(--def-bg); }
+    .defblock--ex { border-left-color: var(--ex-accent); background: var(--ex-bg); }
+    .defblock--desc { border-left-color: var(--desc-accent); background: var(--desc-bg); }
+    .comment { margin: .25rem 0; }
+    .section-title { font-weight: 600; margin-top: .25rem; }
+    .prefixes { margin-top: .5rem; font-size: .9rem; }
+    .kv div.key { font-weight: 600; }
+  </style>
+  <meta name="generator" content="codex-enhanced-ontology-renderer" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Methodology ontology (core)</h1>
+<div class="iri">IRI: <code>http://independentimpact.org/methodology/</code></div>      <div class="desc defblock defblock--desc"><span class="badge badge--desc">Description</span> Reusable vocabulary for describing methodologies, applicability scopes, constraints, symbols, and ordered equation steps that culminate in an indicator value.</div>
+      <div class="prefixes">
+        Prefixes:
+          <code>:: &lt;http://independentimpact.org/methodology/&gt;</code><br />
+          <code>aiao: &lt;http://w3id.org/aiao#&gt;</code><br />
+          <code>impact: &lt;http://w3id.org/impactont#&gt;</code><br />
+          <code>ind: &lt;http://independentimpact.org/indicator-owl/&gt;</code><br />
+          <code>ns1: &lt;http://w3id.org/&gt;</code><br />
+          <code>ns2: &lt;http://www.w3.org/ns/&gt;</code><br />
+          <code>ns3: &lt;http://independentimpact.org/methont/methont.ttl/&gt;</code><br />
+          <code>owl: &lt;http://www.w3.org/2002/07/owl#&gt;</code><br />
+          <code>prov: &lt;http://www.w3.org/ns/prov#&gt;</code><br />
+          <code>qudt: &lt;http://qudt.org/schema/qudt/&gt;</code><br />
+          <code>rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</code><br />
+          <code>rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;</code><br />
+          <code>sh: &lt;http://www.w3.org/ns/shacl#&gt;</code><br />
+          <code>skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;</code><br />
+          <code>xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</code><br />
+      </div>
+    </header>
+
+    <section>
+      <h2>Contents</h2>
+      <div class="kv">
+          <div class="key">Classes</div>
+          <div>
+              <a href="#cls-<nedec9f3e7c6b4078a581de57b3bdd868b12>"><nedec9f3e7c6b4078a581de57b3bdd868b12></a>,               <a href="#cls-<nedec9f3e7c6b4078a581de57b3bdd868b15>"><nedec9f3e7c6b4078a581de57b3bdd868b15></a>,               <a href="#cls-<nedec9f3e7c6b4078a581de57b3bdd868b18>"><nedec9f3e7c6b4078a581de57b3bdd868b18></a>,               <a href="#cls-<nedec9f3e7c6b4078a581de57b3bdd868b21>"><nedec9f3e7c6b4078a581de57b3bdd868b21></a>,               <a href="#cls-<nedec9f3e7c6b4078a581de57b3bdd868b24>"><nedec9f3e7c6b4078a581de57b3bdd868b24></a>,               <a href="#cls-<nedec9f3e7c6b4078a581de57b3bdd868b27>"><nedec9f3e7c6b4078a581de57b3bdd868b27></a>,               <a href="#cls-<nedec9f3e7c6b4078a581de57b3bdd868b2>"><nedec9f3e7c6b4078a581de57b3bdd868b2></a>,               <a href="#cls-<nedec9f3e7c6b4078a581de57b3bdd868b31>"><nedec9f3e7c6b4078a581de57b3bdd868b31></a>,               <a href="#cls-<nedec9f3e7c6b4078a581de57b3bdd868b5>"><nedec9f3e7c6b4078a581de57b3bdd868b5></a>,               <a href="#cls-<nedec9f3e7c6b4078a581de57b3bdd868b8>"><nedec9f3e7c6b4078a581de57b3bdd868b8></a>,               <a href="#cls--ApplicabilityCondition">Applicability condition</a>,               <a href="#cls--BaselineScenario">Baseline scenario</a>,               <a href="#cls--Constant">Constant</a>,               <a href="#cls--DataQualityRequirement">Data quality requirement</a>,               <a href="#cls--DerivedVariable">Derived variable</a>,               <a href="#cls--EquationStep">Equation step</a>,               <a href="#cls--MeasuredVariable">Measured variable</a>,               <a href="#cls--Methodology">Methodology</a>,               <a href="#cls--MethodologyFamily">Methodology family</a>,               <a href="#cls--MinimumDataCoverage">minimum data coverage</a>,               <a href="#cls--MonitoringFrequency">monitoring frequency</a>,               <a href="#cls--MonitoringRequirement">Monitoring requirement</a>,               <a href="#cls--ProjectScenario">Project scenario</a>,               <a href="#cls--Scenario">Scenario</a>,               <a href="#cls--SemanticConstraint">Semantic constraint</a>,               <a href="#cls--UncertaintyModel">Uncertainty model</a>,               <a href="#cls--ValueRole">Value role</a>,               <a href="#cls--Variable">Variable</a>,               <a href="#cls--VariableConstraint">Variable constraint</a>          </div>
+          <div class="key">Properties</div>
+          <div>
+              <a href="#prop--activityScope">activity scope</a>,               <a href="#prop--applicabilityOf">applicability of</a>,               <a href="#prop--appliesToSector">applies to sector</a>,               <a href="#prop--computes">computes</a>,               <a href="#prop--constrainsVariable">constrains variable</a>,               <a href="#prop--constraintNote">constraint note</a>,               <a href="#prop--defaultValue">default value</a>,               <a href="#prop--dependsOnStep">depends on step</a>,               <a href="#prop--equationStepOf">equation step of</a>,               <a href="#prop--forIndicator">for indicator</a>,               <a href="#prop--formulaId">formula id</a>,               <a href="#prop--hasActivityClassification">has activity classification</a>,               <a href="#prop--hasApplicability">has applicability</a>,               <a href="#prop--usesConstant">has constant</a>,               <a href="#prop--hasDataQualityRequirement">has data quality requirement</a>,               <a href="#prop--hasEquationStep">has equation step</a>,               <a href="#prop--hasMethodology">has methodology</a>,               <a href="#prop--hasMonitoringRequirement">has monitoring requirement</a>,               <a href="#prop--hasScaleClassification">has scale classification</a>,               <a href="#prop--hasSemanticConstraint">has semantic constraint</a>,               <a href="#prop--hasUncertaintyModel">has uncertainty model</a>,               <a href="#prop--hasVariableConstraint">has variable constraint</a>,               <a href="#prop--hasVersion">has version</a>,               <a href="#prop--implementedBy">implemented by</a>,               <a href="#prop--isRealisedByVariable">is realised by variable</a>,               <a href="#prop--maxValue">maximum value</a>,               <a href="#prop--methodCode">method code</a>,               <a href="#prop--minValue">minimum value</a>,               <a href="#prop--nextStep">next step</a>,               <a href="#prop--realisesIndicator">realises indicator</a>,               <a href="#prop--semanticTarget">semantic target</a>,               <a href="#prop--sequenceNumber">sequence number</a>,               <a href="#prop--supersededBy">superseded by</a>,               <a href="#prop--supersedes">supersedes</a>,               <a href="#prop--territorialScope">territorial scope</a>,               <a href="#prop--uncertaintyType">uncertainty type</a>,               <a href="#prop--uncertaintyValue">uncertainty value</a>,               <a href="#prop--usesBaselineScenario">uses baseline scenario</a>,               <a href="#prop--usesProjectScenario">uses project scenario</a>,               <a href="#prop--validFrom">valid from</a>,               <a href="#prop--validThrough">valid through</a>,               <a href="#prop--validationShape">validation shape</a>,               <a href="#prop--hasValueRole">value role</a>          </div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section>
+        <h2>Classes</h2>
+          <div class="item" id="cls-<nedec9f3e7c6b4078a581de57b3bdd868b12>">
+            <h3><nedec9f3e7c6b4078a581de57b3bdd868b12></h3>
+            <div class="meta">IRI: <code>nedec9f3e7c6b4078a581de57b3bdd868b12</code></div>
+
+
+
+
+            <div class="kv">
+            </div>
+          </div>
+          <div class="item" id="cls-<nedec9f3e7c6b4078a581de57b3bdd868b15>">
+            <h3><nedec9f3e7c6b4078a581de57b3bdd868b15></h3>
+            <div class="meta">IRI: <code>nedec9f3e7c6b4078a581de57b3bdd868b15</code></div>
+
+
+
+
+            <div class="kv">
+            </div>
+          </div>
+          <div class="item" id="cls-<nedec9f3e7c6b4078a581de57b3bdd868b18>">
+            <h3><nedec9f3e7c6b4078a581de57b3bdd868b18></h3>
+            <div class="meta">IRI: <code>nedec9f3e7c6b4078a581de57b3bdd868b18</code></div>
+
+
+
+
+            <div class="kv">
+            </div>
+          </div>
+          <div class="item" id="cls-<nedec9f3e7c6b4078a581de57b3bdd868b21>">
+            <h3><nedec9f3e7c6b4078a581de57b3bdd868b21></h3>
+            <div class="meta">IRI: <code>nedec9f3e7c6b4078a581de57b3bdd868b21</code></div>
+
+
+
+
+            <div class="kv">
+            </div>
+          </div>
+          <div class="item" id="cls-<nedec9f3e7c6b4078a581de57b3bdd868b24>">
+            <h3><nedec9f3e7c6b4078a581de57b3bdd868b24></h3>
+            <div class="meta">IRI: <code>nedec9f3e7c6b4078a581de57b3bdd868b24</code></div>
+
+
+
+
+            <div class="kv">
+            </div>
+          </div>
+          <div class="item" id="cls-<nedec9f3e7c6b4078a581de57b3bdd868b27>">
+            <h3><nedec9f3e7c6b4078a581de57b3bdd868b27></h3>
+            <div class="meta">IRI: <code>nedec9f3e7c6b4078a581de57b3bdd868b27</code></div>
+
+
+
+
+            <div class="kv">
+            </div>
+          </div>
+          <div class="item" id="cls-<nedec9f3e7c6b4078a581de57b3bdd868b2>">
+            <h3><nedec9f3e7c6b4078a581de57b3bdd868b2></h3>
+            <div class="meta">IRI: <code>nedec9f3e7c6b4078a581de57b3bdd868b2</code></div>
+
+
+
+
+            <div class="kv">
+            </div>
+          </div>
+          <div class="item" id="cls-<nedec9f3e7c6b4078a581de57b3bdd868b31>">
+            <h3><nedec9f3e7c6b4078a581de57b3bdd868b31></h3>
+            <div class="meta">IRI: <code>nedec9f3e7c6b4078a581de57b3bdd868b31</code></div>
+
+
+
+
+            <div class="kv">
+            </div>
+          </div>
+          <div class="item" id="cls-<nedec9f3e7c6b4078a581de57b3bdd868b5>">
+            <h3><nedec9f3e7c6b4078a581de57b3bdd868b5></h3>
+            <div class="meta">IRI: <code>nedec9f3e7c6b4078a581de57b3bdd868b5</code></div>
+
+
+
+
+            <div class="kv">
+            </div>
+          </div>
+          <div class="item" id="cls-<nedec9f3e7c6b4078a581de57b3bdd868b8>">
+            <h3><nedec9f3e7c6b4078a581de57b3bdd868b8></h3>
+            <div class="meta">IRI: <code>nedec9f3e7c6b4078a581de57b3bdd868b8</code></div>
+
+
+
+
+            <div class="kv">
+            </div>
+          </div>
+          <div class="item" id="cls--ApplicabilityCondition">
+            <h3>Applicability condition</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/ApplicabilityCondition</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">Contextual requirements (e.g., activity, geography, temporal scope) that must hold before the methodology may be executed.</div>
+
+
+
+            <div class="kv">
+                <div class="key">In Domain Of</div>
+                <div>
+                    <a href="#prop--applicabilityOf">:applicabilityOf</a>,                     <a href="#prop--activityScope">:activityScope</a>,                     <a href="#prop--territorialScope">:territorialScope</a>                </div>
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--hasApplicability">:hasApplicability</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--BaselineScenario">
+            <h3>Baseline scenario</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/BaselineScenario</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">Reference (counterfactual) scenario representing conditions without the intervention.</div>
+
+
+
+            <div class="kv">
+                <div class="key">SubClass Of</div>
+                <div>
+                    <a href="#cls--Scenario">:Scenario</a>                </div>
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--usesBaselineScenario">:usesBaselineScenario</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--Constant">
+            <h3>Constant</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/Constant</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">A fixed coefficient used by a methodology or equation step, e.g., a default GWP value.</div>
+
+
+
+            <div class="kv">
+                <div class="key">In Domain Of</div>
+                <div>
+                    <a href="#prop--defaultValue">:defaultValue</a>                </div>
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--usesConstant">:usesConstant</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--DataQualityRequirement">
+            <h3>Data quality requirement</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/DataQualityRequirement</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">A rule defining completeness, calibration, or QA/QC thresholds for accepted data.</div>
+
+
+
+            <div class="kv">
+                <div class="key">SubClass Of</div>
+                <div>
+                    <a href="#cls--MonitoringRequirement">:MonitoringRequirement</a>                </div>
+                <div class="key">Superclass Of</div>
+                <div>
+                    <a href="#cls--MinimumDataCoverage">:MinimumDataCoverage</a>                </div>
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--hasDataQualityRequirement">:hasDataQualityRequirement</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--DerivedVariable">
+            <h3>Derived variable</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/DerivedVariable</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">Variable that functions as a symbolic placeholder in equations and may be resolved from constants or derived computations.</div>
+
+
+
+            <div class="kv">
+                <div class="key">SubClass Of</div>
+                <div>
+                    <a href="#cls--Variable">:Variable</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--EquationStep">
+            <h3>Equation step</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/EquationStep</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">An ordered formula that computes one variable using one or more inputs; steps chain together until the indicator is quantified.</div>
+
+
+
+            <div class="kv">
+                <div class="key">SubClass Of</div>
+                <div>
+                    <a href="http://independentimpact.org/indicator-owl/IndicatorFormula">ind:IndicatorFormula</a>                </div>
+                <div class="key">In Domain Of</div>
+                <div>
+                    <a href="#prop--equationStepOf">:equationStepOf</a>,                     <a href="#prop--computes">:computes</a>,                     <a href="#prop--nextStep">:nextStep</a>,                     <a href="#prop--sequenceNumber">:sequenceNumber</a>,                     <a href="#prop--dependsOnStep">:dependsOnStep</a>,                     <a href="#prop--formulaId">:formulaId</a>                </div>
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--hasEquationStep">:hasEquationStep</a>,                     <a href="#prop--nextStep">:nextStep</a>,                     <a href="#prop--dependsOnStep">:dependsOnStep</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--MeasuredVariable">
+            <h3>Measured variable</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/MeasuredVariable</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">Variable whose value is obtained from monitoring, sampling, metering, or other observation processes.</div>
+
+
+
+            <div class="kv">
+                <div class="key">SubClass Of</div>
+                <div>
+                    <a href="#cls--Variable">:Variable</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--Methodology">
+            <h3>Methodology</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/Methodology</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">A structured set of applicability conditions, constraints, and ordered equations that produces a quantified indicator value.</div>
+
+
+
+            <div class="kv">
+                <div class="key">SubClass Of</div>
+                <div>
+                    <a href="http://www.w3.org/ns/prov#Plan">prov:Plan</a>                </div>
+                <div class="key">In Domain Of</div>
+                <div>
+                    <a href="#prop--forIndicator">:forIndicator</a>,                     <a href="#prop--hasApplicability">:hasApplicability</a>,                     <a href="#prop--hasSemanticConstraint">:hasSemanticConstraint</a>,                     <a href="#prop--hasEquationStep">:hasEquationStep</a>,                     <a href="#prop--hasScaleClassification">:hasScaleClassification</a>,                     <a href="#prop--hasActivityClassification">:hasActivityClassification</a>,                     <a href="#prop--hasVersion">:hasVersion</a>,                     <a href="#prop--supersedes">:supersedes</a>,                     <a href="#prop--supersededBy">:supersededBy</a>,                     <a href="#prop--hasMonitoringRequirement">:hasMonitoringRequirement</a>,                     <a href="#prop--appliesToSector">:appliesToSector</a>,                     <a href="#prop--usesBaselineScenario">:usesBaselineScenario</a>,                     <a href="#prop--usesProjectScenario">:usesProjectScenario</a>,                     <a href="#prop--implementedBy">:implementedBy</a>                </div>
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--hasMethodology">:hasMethodology</a>,                     <a href="#prop--applicabilityOf">:applicabilityOf</a>,                     <a href="#prop--equationStepOf">:equationStepOf</a>,                     <a href="#prop--supersedes">:supersedes</a>,                     <a href="#prop--supersededBy">:supersededBy</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--MethodologyFamily">
+            <h3>Methodology family</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/MethodologyFamily</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">A grouping of methodology versions that share the same method code lineage (e.g., ACM0001).</div>
+
+
+
+            <div class="kv">
+            </div>
+          </div>
+          <div class="item" id="cls--MinimumDataCoverage">
+            <h3>minimum data coverage</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/MinimumDataCoverage</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">SubClass Of</div>
+                <div>
+                    <a href="#cls--DataQualityRequirement">:DataQualityRequirement</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--MonitoringFrequency">
+            <h3>monitoring frequency</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/MonitoringFrequency</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">SubClass Of</div>
+                <div>
+                    <a href="#cls--MonitoringRequirement">:MonitoringRequirement</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--MonitoringRequirement">
+            <h3>Monitoring requirement</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/MonitoringRequirement</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">A requirement describing how variables must be measured, sampled, or verified during implementation.</div>
+
+
+
+            <div class="kv">
+                <div class="key">Superclass Of</div>
+                <div>
+                    <a href="#cls--DataQualityRequirement">:DataQualityRequirement</a>,                     <a href="#cls--MonitoringFrequency">:MonitoringFrequency</a>                </div>
+                <div class="key">In Domain Of</div>
+                <div>
+                    <a href="#prop--hasDataQualityRequirement">:hasDataQualityRequirement</a>                </div>
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--hasMonitoringRequirement">:hasMonitoringRequirement</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--ProjectScenario">
+            <h3>Project scenario</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/ProjectScenario</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">Intervention scenario representing conditions with the project activity applied.</div>
+
+
+
+            <div class="kv">
+                <div class="key">SubClass Of</div>
+                <div>
+                    <a href="#cls--Scenario">:Scenario</a>                </div>
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--usesProjectScenario">:usesProjectScenario</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--Scenario">
+            <h3>Scenario</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/Scenario</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">A modeled context used for methodology accounting, typically representing baseline/reference conditions or project/intervention conditions.</div>
+
+
+
+            <div class="kv">
+                <div class="key">Superclass Of</div>
+                <div>
+                    <a href="#cls--BaselineScenario">:BaselineScenario</a>,                     <a href="#cls--ProjectScenario">:ProjectScenario</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--SemanticConstraint">
+            <h3>Semantic constraint</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/SemanticConstraint</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">Qualitative rule that restricts the applicability of a methodology (e.g., facility classification, compliance status).</div>
+
+
+
+            <div class="kv">
+                <div class="key">SubClass Of</div>
+                <div>
+                    <a href="http://www.w3.org/ns/shacl#NodeShape">sh:NodeShape</a>                </div>
+                <div class="key">In Domain Of</div>
+                <div>
+                    <a href="#prop--semanticTarget">:semanticTarget</a>                </div>
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--hasSemanticConstraint">:hasSemanticConstraint</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--UncertaintyModel">
+            <h3>Uncertainty model</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/UncertaintyModel</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">A description of uncertainty treatment for a methodology, step, or parameter.</div>
+
+
+
+            <div class="kv">
+                <div class="key">In Domain Of</div>
+                <div>
+                    <a href="#prop--uncertaintyValue">:uncertaintyValue</a>,                     <a href="#prop--uncertaintyType">:uncertaintyType</a>                </div>
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--hasUncertaintyModel">:hasUncertaintyModel</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--ValueRole">
+            <h3>Value role</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/ValueRole</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">Role that a symbol plays within the methodology (measured input or calculated output).</div>
+
+              <div class="section-title">Comments</div>
+                <div class="comment">Use this class for methodology symbol roles (e.g., MeasuredInput, DerivedOutput); keep it separate from provenance role vocabularies.</div>
+
+
+            <div class="kv">
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--hasValueRole">:hasValueRole</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--Variable">
+            <h3>Variable</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/Variable</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">A defined measurable property of an owl:Thing. Can be either observed or derived.</div>
+
+
+
+            <div class="kv">
+                <div class="key">Superclass Of</div>
+                <div>
+                    <a href="#cls--MeasuredVariable">:MeasuredVariable</a>,                     <a href="#cls--DerivedVariable">:DerivedVariable</a>                </div>
+                <div class="key">In Domain Of</div>
+                <div>
+                    <a href="#prop--realisesIndicator">:realisesIndicator</a>,                     <a href="#prop--hasValueRole">:hasValueRole</a>                </div>
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--isRealisedByVariable">:isRealisedByVariable</a>,                     <a href="#prop--computes">:computes</a>,                     <a href="#prop--constrainsVariable">:constrainsVariable</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="cls--VariableConstraint">
+            <h3>Variable constraint</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/VariableConstraint</code></div>
+
+              <div class="section-title"><span class="badge badge--def">SKOS</span>Definition</div>
+                <div class="defblock defblock--def">Quantitative bound or validation rule applied to a measured or computed variable.</div>
+
+
+
+            <div class="kv">
+                <div class="key">SubClass Of</div>
+                <div>
+                    <a href="http://www.w3.org/ns/shacl#NodeShape">sh:NodeShape</a>                </div>
+                <div class="key">In Domain Of</div>
+                <div>
+                    <a href="#prop--constrainsVariable">:constrainsVariable</a>,                     <a href="#prop--minValue">:minValue</a>,                     <a href="#prop--maxValue">:maxValue</a>                </div>
+                <div class="key">In Range Of</div>
+                <div>
+                    <a href="#prop--hasVariableConstraint">:hasVariableConstraint</a>                </div>
+            </div>
+          </div>
+      </section>
+
+      <section>
+        <h2>Properties</h2>
+          <div class="item" id="prop--activityScope">
+            <h3>activity scope</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/activityScope</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--ApplicabilityCondition">:ApplicabilityCondition</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-aiao-Activity">aiao:Activity</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--applicabilityOf">
+            <h3>applicability of</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/applicabilityOf</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--ApplicabilityCondition">:ApplicabilityCondition</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Inverse Of</div>
+                <div>
+                    <a href="#prop--hasApplicability">:hasApplicability</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--appliesToSector">
+            <h3>applies to sector</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/appliesToSector</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-skos-Concept">skos:Concept</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--computes">
+            <h3>computes</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/computes</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--EquationStep">:EquationStep</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--Variable">:Variable</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--constrainsVariable">
+            <h3>constrains variable</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/constrainsVariable</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--VariableConstraint">:VariableConstraint</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--Variable">:Variable</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--constraintNote">
+            <h3>constraint note</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/constraintNote</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-xsd-string">xsd:string</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--defaultValue">
+            <h3>default value</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/defaultValue</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Constant">:Constant</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-xsd-decimal">xsd:decimal</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--dependsOnStep">
+            <h3>depends on step</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/dependsOnStep</code></div>
+
+
+              <div class="section-title">Comments</div>
+                <div class="comment">Declares a dependency edge between equation steps for DAG-based execution plans.</div>
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--EquationStep">:EquationStep</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--EquationStep">:EquationStep</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--equationStepOf">
+            <h3>equation step of</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/equationStepOf</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--EquationStep">:EquationStep</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Inverse Of</div>
+                <div>
+                    <a href="#prop--hasEquationStep">:hasEquationStep</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--forIndicator">
+            <h3>for indicator</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/forIndicator</code></div>
+
+
+              <div class="section-title">Comments</div>
+                <div class="comment">Links a methodology to the indicator definition whose value it produces (indicator definition in IndicatorOntology).</div>
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-impact-Indicator">impact:Indicator</a>                </div>
+                <div class="key">Inverse Of</div>
+                <div>
+                    <a href="#prop--hasMethodology">:hasMethodology</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--formulaId">
+            <h3>formula id</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/formulaId</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--EquationStep">:EquationStep</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-xsd-string">xsd:string</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--hasActivityClassification">
+            <h3>has activity classification</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/hasActivityClassification</code></div>
+
+
+              <div class="section-title">Comments</div>
+                <div class="comment">Direct activity classification tag for methodology filtering; accepts SKOS concepts and activity resources for compatibility.</div>
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--hasApplicability">
+            <h3>has applicability</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/hasApplicability</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--ApplicabilityCondition">:ApplicabilityCondition</a>                </div>
+                <div class="key">Inverse Of</div>
+                <div>
+                    <a href="#prop--applicabilityOf">:applicabilityOf</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--usesConstant">
+            <h3>has constant</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/usesConstant</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--Constant">:Constant</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--hasDataQualityRequirement">
+            <h3>has data quality requirement</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/hasDataQualityRequirement</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--MonitoringRequirement">:MonitoringRequirement</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--DataQualityRequirement">:DataQualityRequirement</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--hasEquationStep">
+            <h3>has equation step</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/hasEquationStep</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--EquationStep">:EquationStep</a>                </div>
+                <div class="key">Inverse Of</div>
+                <div>
+                    <a href="#prop--equationStepOf">:equationStepOf</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--hasMethodology">
+            <h3>has methodology</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/hasMethodology</code></div>
+
+
+              <div class="section-title">Comments</div>
+                <div class="comment">Inverse helper so indicator catalogues can enumerate all compatible methodologies without bespoke queries.</div>
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls-impact-Indicator">impact:Indicator</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Inverse Of</div>
+                <div>
+                    <a href="#prop--forIndicator">:forIndicator</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--hasMonitoringRequirement">
+            <h3>has monitoring requirement</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/hasMonitoringRequirement</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--MonitoringRequirement">:MonitoringRequirement</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--hasScaleClassification">
+            <h3>has scale classification</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/hasScaleClassification</code></div>
+
+
+              <div class="section-title">Comments</div>
+                <div class="comment">Direct tag that states whether the methodology is large-scale or small-scale, enabling single-hop filtering without inspecting constraint profiles.</div>
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-skos-Concept">skos:Concept</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--hasSemanticConstraint">
+            <h3>has semantic constraint</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/hasSemanticConstraint</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--SemanticConstraint">:SemanticConstraint</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--hasUncertaintyModel">
+            <h3>has uncertainty model</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/hasUncertaintyModel</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--UncertaintyModel">:UncertaintyModel</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--hasVariableConstraint">
+            <h3>has variable constraint</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/hasVariableConstraint</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--VariableConstraint">:VariableConstraint</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--hasVersion">
+            <h3>has version</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/hasVersion</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-xsd-string">xsd:string</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--implementedBy">
+            <h3>implemented by</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/implementedBy</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--isRealisedByVariable">
+            <h3>is realised by variable</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/isRealisedByVariable</code></div>
+
+
+              <div class="section-title">Comments</div>
+                <div class="comment">Inverse relation linking an indicator to variables that operationalize it.</div>
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls-impact-Indicator">impact:Indicator</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--Variable">:Variable</a>                </div>
+                <div class="key">Inverse Of</div>
+                <div>
+                    <a href="#prop--realisesIndicator">:realisesIndicator</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--maxValue">
+            <h3>maximum value</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/maxValue</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--VariableConstraint">:VariableConstraint</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-xsd-decimal">xsd:decimal</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--methodCode">
+            <h3>method code</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/methodCode</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-xsd-string">xsd:string</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--minValue">
+            <h3>minimum value</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/minValue</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--VariableConstraint">:VariableConstraint</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-xsd-decimal">xsd:decimal</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--nextStep">
+            <h3>next step</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/nextStep</code></div>
+
+
+              <div class="section-title">Comments</div>
+                <div class="comment">Creates an ordered chain of equations; the final step produces the indicator value.</div>
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--EquationStep">:EquationStep</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--EquationStep">:EquationStep</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--realisesIndicator">
+            <h3>realises indicator</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/realisesIndicator</code></div>
+
+
+              <div class="section-title">Comments</div>
+                <div class="comment">An indicator is a convention for indicating the state of an owl:Thing. A variable is a set of observations or derivations according to some convention, i.e., an indicator.</div>
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Variable">:Variable</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-impact-Indicator">impact:Indicator</a>                </div>
+                <div class="key">Inverse Of</div>
+                <div>
+                    <a href="#prop--isRealisedByVariable">:isRealisedByVariable</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--semanticTarget">
+            <h3>semantic target</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/semanticTarget</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--SemanticConstraint">:SemanticConstraint</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-skos-Concept">skos:Concept</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--sequenceNumber">
+            <h3>sequence number</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/sequenceNumber</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--EquationStep">:EquationStep</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-xsd-positiveInteger">xsd:positiveInteger</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--supersededBy">
+            <h3>superseded by</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/supersededBy</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Inverse Of</div>
+                <div>
+                    <a href="#prop--supersedes">:supersedes</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--supersedes">
+            <h3>supersedes</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/supersedes</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Inverse Of</div>
+                <div>
+                    <a href="#prop--supersededBy">:supersededBy</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--territorialScope">
+            <h3>territorial scope</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/territorialScope</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--ApplicabilityCondition">:ApplicabilityCondition</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-prov-Location">prov:Location</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--uncertaintyType">
+            <h3>uncertainty type</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/uncertaintyType</code></div>
+
+
+              <div class="section-title">Comments</div>
+                <div class="comment">Examples include absolute, relative, confidenceInterval95.</div>
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--UncertaintyModel">:UncertaintyModel</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-skos-Concept">skos:Concept</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--uncertaintyValue">
+            <h3>uncertainty value</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/uncertaintyValue</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--UncertaintyModel">:UncertaintyModel</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-xsd-decimal">xsd:decimal</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--usesBaselineScenario">
+            <h3>uses baseline scenario</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/usesBaselineScenario</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--BaselineScenario">:BaselineScenario</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--usesProjectScenario">
+            <h3>uses project scenario</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/usesProjectScenario</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Methodology">:Methodology</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--ProjectScenario">:ProjectScenario</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--validFrom">
+            <h3>valid from</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/validFrom</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-xsd-date">xsd:date</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--validThrough">
+            <h3>valid through</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/validThrough</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-xsd-date">xsd:date</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--validationShape">
+            <h3>validation shape</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/validationShape</code></div>
+
+
+              <div class="section-title">Comments</div>
+                <div class="comment">Links a methodology or constraint to the SHACL NodeShape that enforces its rules.</div>
+
+
+            <div class="kv">
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls-sh-NodeShape">sh:NodeShape</a>                </div>
+            </div>
+          </div>
+          <div class="item" id="prop--hasValueRole">
+            <h3>value role</h3>
+            <div class="meta">IRI: <code>http://independentimpact.org/methodology/hasValueRole</code></div>
+
+
+
+
+            <div class="kv">
+                <div class="key">Domain</div>
+                <div>
+                    <a href="#cls--Variable">:Variable</a>                </div>
+                <div class="key">Range</div>
+                <div>
+                    <a href="#cls--ValueRole">:ValueRole</a>                </div>
+            </div>
+          </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
