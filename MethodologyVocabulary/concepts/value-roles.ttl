@@ -1,0 +1,30 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix meth: <http://independentimpact.org/methodology/> .
+
+<http://independentimpact.org/methodology/vocab/concepts/value-roles> a owl:Ontology ;
+  dct:title "Methodology value roles"@en ;
+  dct:description "SKOS concept scheme for symbol value roles used in methodology equations."@en ;
+  dct:issued "2026-04-10"^^xsd:date .
+
+meth:ValueRoleScheme a skos:ConceptScheme ;
+  skos:prefLabel "Methodology value roles"@en ;
+  skos:definition "Controlled vocabulary for symbol roles in equation execution and reporting."@en .
+
+meth:MeasuredInput a meth:ValueRole, skos:Concept ;
+  skos:inScheme meth:ValueRoleScheme ;
+  skos:prefLabel "Measured input"@en ;
+  skos:definition "A directly observed or externally supplied value consumed by equation steps."@en .
+
+meth:DerivedOutput a meth:ValueRole, skos:Concept ;
+  skos:inScheme meth:ValueRoleScheme ;
+  skos:prefLabel "Derived output"@en ;
+  skos:definition "A value computed by one equation step and potentially reused by subsequent steps."@en .
+
+meth:ReportedOutput a meth:ValueRole, skos:Concept ;
+  skos:inScheme meth:ValueRoleScheme ;
+  skos:prefLabel "Reported output"@en ;
+  skos:definition "The final methodology result reported as the indicator value for a period."@en ;
+  skos:broader meth:DerivedOutput .

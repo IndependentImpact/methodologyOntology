@@ -1,0 +1,16 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix cdmvocab: <http://independentimpact.org/methodology/vocab/cdm/> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix meth: <http://independentimpact.org/methodology/> .
+
+<http://independentimpact.org/methodology/vocab/concepts/activity-classifications> a owl:Ontology ;
+  dct:title "Methodology activity classifications"@en ;
+  dct:description "SKOS concept scheme for activity classifications used in methodology filtering and selection."@en ;
+  dct:issued "2026-04-10"^^xsd:date .
+
+meth:ActivityClassificationScheme a skos:ConceptScheme ;
+  skos:prefLabel "Methodology activity classifications"@en ;
+  skos:definition "Controlled vocabulary of activity categories used with meth:hasActivityClassification."@en .
+

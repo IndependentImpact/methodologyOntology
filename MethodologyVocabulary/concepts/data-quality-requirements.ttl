@@ -1,0 +1,29 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix meth: <http://independentimpact.org/methodology/> .
+
+<http://independentimpact.org/methodology/vocab/concepts/data-quality-requirements> a owl:Ontology ;
+  dct:title "Methodology data quality requirement concepts"@en ;
+  dct:description "SKOS concept scheme for common data quality controls appearing in CDM methodology constraints."@en ;
+  dct:issued "2026-04-10"^^xsd:date .
+
+meth:DataQualityRequirementScheme a skos:ConceptScheme ;
+  skos:prefLabel "Data quality requirement types"@en ;
+  skos:definition "Controlled vocabulary of QA/QC requirement categories for methodology data acceptance."@en .
+
+meth:MinimumCoverageThreshold a meth:DataQualityRequirement, skos:Concept ;
+  skos:inScheme meth:DataQualityRequirementScheme ;
+  skos:prefLabel "Minimum data coverage threshold"@en ;
+  skos:definition "Requirement specifying minimum share of valid data required for reporting."@en .
+
+meth:MaximumMeterUncertaintyThreshold a meth:DataQualityRequirement, skos:Concept ;
+  skos:inScheme meth:DataQualityRequirementScheme ;
+  skos:prefLabel "Maximum metering uncertainty threshold"@en ;
+  skos:definition "Requirement specifying upper limit for combined metering uncertainty."@en .
+
+meth:InstrumentCalibrationEvidence a meth:DataQualityRequirement, skos:Concept ;
+  skos:inScheme meth:DataQualityRequirementScheme ;
+  skos:prefLabel "Instrument calibration evidence"@en ;
+  skos:definition "Requirement that calibration records are available for critical instruments."@en .

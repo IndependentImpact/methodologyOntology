@@ -1,0 +1,27 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix meth: <http://independentimpact.org/methodology/> .
+@prefix ind:  <http://independentimpact.org/indicator-owl/> .
+
+<http://independentimpact.org/methodology/vocab/concepts/math-notations> a owl:Ontology ;
+  dct:title "Methodology math notation concepts"@en ;
+  dct:description "SKOS concept scheme for expression syntax identifiers used by equation steps."@en ;
+  dct:issued "2026-04-10"^^xsd:date .
+
+meth:MathNotationScheme a skos:ConceptScheme ;
+  skos:prefLabel "Math notation types"@en ;
+  skos:definition "Controlled vocabulary for ind:mathTextRepresentationType values in equation steps."@en .
+
+meth:AsciiMathNotation a skos:Concept ;
+  skos:inScheme meth:MathNotationScheme ;
+  skos:prefLabel "AsciiMath"@en .
+
+meth:LaTeXNotation a skos:Concept ;
+  skos:inScheme meth:MathNotationScheme ;
+  skos:prefLabel "LaTeX"@en .
+
+meth:MathMLNotation a skos:Concept ;
+  skos:inScheme meth:MathNotationScheme ;
+  skos:prefLabel "MathML"@en .

@@ -1,0 +1,26 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix meth: <http://independentimpact.org/methodology/> .
+
+<http://independentimpact.org/methodology/vocab/concepts/uncertainty-types> a owl:Ontology ;
+  dct:title "Methodology uncertainty types"@en ;
+  dct:description "SKOS concept scheme for uncertaintyType values used by uncertainty models."@en ;
+  dct:issued "2026-04-10"^^xsd:date .
+
+meth:UncertaintyTypeScheme a skos:ConceptScheme ;
+  skos:prefLabel "Uncertainty types"@en ;
+  skos:definition "Controlled vocabulary for uncertainty interpretation in methodology constants, equations, and reporting."@en .
+
+meth:AbsoluteUncertainty a skos:Concept ;
+  skos:inScheme meth:UncertaintyTypeScheme ;
+  skos:prefLabel "Absolute uncertainty"@en .
+
+meth:RelativeUncertainty a skos:Concept ;
+  skos:inScheme meth:UncertaintyTypeScheme ;
+  skos:prefLabel "Relative uncertainty"@en .
+
+meth:ConfidenceInterval95 a skos:Concept ;
+  skos:inScheme meth:UncertaintyTypeScheme ;
+  skos:prefLabel "95% confidence interval"@en .

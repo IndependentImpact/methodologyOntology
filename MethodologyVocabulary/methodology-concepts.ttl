@@ -1,0 +1,17 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<http://independentimpact.org/methodology/vocab/concepts> a owl:Ontology ;
+  dct:title "Methodology concept vocabularies bundle"@en ;
+  dct:description "Bundle ontology importing SKOS concept schemes used by methodology metadata."@en ;
+  dct:issued "2026-04-10"^^xsd:date ;
+  owl:imports <concepts/value-roles.ttl> ;
+  owl:imports <concepts/monitoring-requirements.ttl> ;
+  owl:imports <concepts/data-quality-requirements.ttl> ;
+  owl:imports <concepts/uncertainty-types.ttl> ;
+  owl:imports <concepts/math-notations.ttl> ;
+  owl:imports <concepts/activity-classifications.ttl> ;
+  owl:imports <concepts/scale-classifications.ttl> .
+
+

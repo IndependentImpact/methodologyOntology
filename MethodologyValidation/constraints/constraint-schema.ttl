@@ -1,0 +1,26 @@
+@prefix meth: <http://independentimpact.org/methodology/> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://independentimpact.org/methodology/constraints/constraint-schema> a owl:Ontology ;
+  dct:title "Methodology constraint schema"@en ;
+  dct:description "Source-agnostic schema terms for grouping and assigning constraint profiles."@en ;
+  dct:issued "2026-04-10"^^xsd:date ;
+  owl:imports <http://independentimpact.org/methont/methont.ttl> .
+
+meth:ConstraintProfile a owl:Class ;
+  rdfs:label "Constraint profile"@en ;
+  skos:definition "Grouping of semantic and variable constraints (plus their shapes) that can be applied to one or more methodologies."@en .
+
+meth:includesConstraint a owl:ObjectProperty ;
+  rdfs:domain meth:ConstraintProfile ;
+  rdfs:range [ a owl:Class ; owl:unionOf ( meth:SemanticConstraint meth:VariableConstraint ) ] ;
+  rdfs:label "includes constraint"@en .
+
+meth:usesConstraintProfile a owl:ObjectProperty ;
+  rdfs:domain meth:Methodology ;
+  rdfs:range meth:ConstraintProfile ;
+  rdfs:label "uses constraint profile"@en .

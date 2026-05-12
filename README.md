@@ -180,22 +180,22 @@ The ontology follows semantic versioning. Breaking changes increment the major v
 
 ---
 
-## Module Repositories
+## Module Folders
 
-Methodology modules are split across three repositories:
+This repository now contains three methodology modules as folders:
 
-- MethodologyOntology (this repo): core ontology (methont.ttl).
-- MethodologyValidation: SHACL shapes and constraint schema.
-- MethodologyVocabulary: SKOS concept schemes used by methodology metadata.
+- `methont.ttl` at repo root: core ontology (classes and properties).
+- `MethodologyValidation/`: SHACL shapes and constraint schema.
+- `MethodologyVocabulary/`: SKOS concept schemes used by methodology metadata.
 
 
 
 
 ## Validation
 
-`powershell
+```powershell
 .\scripts\validate_ttl.ps1
-` 
+```
 
 ## Release Checklist
 

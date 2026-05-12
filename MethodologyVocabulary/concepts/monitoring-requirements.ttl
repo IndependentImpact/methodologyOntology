@@ -1,0 +1,44 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix meth: <http://independentimpact.org/methodology/> .
+
+<http://independentimpact.org/methodology/vocab/concepts/monitoring-requirements> a owl:Ontology ;
+  dct:title "Methodology monitoring requirement concepts"@en ;
+  dct:description "SKOS concept scheme for reusable monitoring requirement types derived from CDM implementation patterns."@en ;
+  dct:issued "2026-04-10"^^xsd:date .
+
+meth:MonitoringRequirementScheme a skos:ConceptScheme ;
+  skos:prefLabel "Monitoring requirement types"@en ;
+  skos:definition "Controlled vocabulary of monitoring requirement categories referenced by methodologies and constraints."@en .
+
+meth:FrequencyRequirement a meth:MonitoringRequirement, skos:Concept ;
+  skos:inScheme meth:MonitoringRequirementScheme ;
+  skos:prefLabel "Frequency requirement"@en ;
+  skos:definition "Requirement that prescribes minimum measurement or sampling cadence."@en .
+
+meth:CoverageRequirement a meth:MonitoringRequirement, skos:Concept ;
+  skos:inScheme meth:MonitoringRequirementScheme ;
+  skos:prefLabel "Coverage requirement"@en ;
+  skos:definition "Requirement that prescribes minimum fraction of valid monitored data."@en .
+
+meth:CalibrationRequirement a meth:MonitoringRequirement, skos:Concept ;
+  skos:inScheme meth:MonitoringRequirementScheme ;
+  skos:prefLabel "Calibration requirement"@en ;
+  skos:definition "Requirement that instruments are calibrated at specified intervals."@en .
+
+meth:WeeklyFrequencyRequirement a meth:MonitoringRequirement, skos:Concept ;
+  skos:inScheme meth:MonitoringRequirementScheme ;
+  skos:prefLabel "Weekly monitoring frequency"@en ;
+  skos:broader meth:FrequencyRequirement .
+
+meth:MonthlyFrequencyRequirement a meth:MonitoringRequirement, skos:Concept ;
+  skos:inScheme meth:MonitoringRequirementScheme ;
+  skos:prefLabel "Monthly monitoring frequency"@en ;
+  skos:broader meth:FrequencyRequirement .
+
+meth:ContinuousFrequencyRequirement a meth:MonitoringRequirement, skos:Concept ;
+  skos:inScheme meth:MonitoringRequirementScheme ;
+  skos:prefLabel "Continuous monitoring frequency"@en ;
+  skos:broader meth:FrequencyRequirement .

@@ -1,0 +1,51 @@
+@prefix meth: <http://independentimpact.org/methodology/> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+#################################################################
+# Generic method-layer shapes
+#################################################################
+
+meth:MethodologyHasVersionShape a sh:NodeShape ;
+  sh:targetClass meth:Methodology ;
+  sh:property [
+    sh:path meth:hasVersion ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:message "Methodology should include hasVersion as a string."@en
+  ] .
+
+meth:MonitoringRequirementShape a sh:NodeShape ;
+  sh:targetClass meth:MonitoringRequirement ;
+  sh:property [
+    sh:path meth:constraintNote ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:message "MonitoringRequirement should include a descriptive constraintNote."@en
+  ] .
+
+meth:UncertaintyModelShape a sh:NodeShape ;
+  sh:targetClass meth:UncertaintyModel ;
+  sh:property [
+    sh:path meth:uncertaintyType ;
+    sh:minCount 1 ;
+    sh:class skos:Concept ;
+    sh:message "UncertaintyModel should include uncertaintyType as a SKOS concept."@en
+  ] ;
+  sh:property [
+    sh:path meth:uncertaintyValue ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:decimal ;
+    sh:message "UncertaintyModel uncertaintyValue, when provided, must be decimal."@en
+  ] .
+
+meth:DataQualityRequirementShape a sh:NodeShape ;
+  sh:targetClass meth:DataQualityRequirement ;
+  sh:property [
+    sh:path meth:constraintNote ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:message "DataQualityRequirement should include a descriptive constraintNote."@en
+  ] .
+

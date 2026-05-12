@@ -1,0 +1,9 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<http://independentimpact.org/methodology/vocab/context> a owl:Ontology ;
+  dct:title "Methodology vocabulary context"@en ;
+  dct:description "Bundle ontology importing methodology SKOS concept vocabularies."@en ;
+  dct:issued "2026-05-11"^^xsd:date ;
+  owl:imports <methodology-concepts.ttl> .

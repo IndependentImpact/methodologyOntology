@@ -1,0 +1,10 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<http://independentimpact.org/methodology/validation/context> a owl:Ontology ;
+  dct:title "Methodology validation context"@en ;
+  dct:description "Bundle ontology importing generic methodology constraint schema and SHACL shapes."@en ;
+  dct:issued "2026-05-11"^^xsd:date ;
+  owl:imports <constraints/constraint-schema.ttl> ;
+  owl:imports <shapes/methodology-generic-shapes.ttl> .
