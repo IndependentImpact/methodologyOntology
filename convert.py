@@ -91,7 +91,8 @@ def collect_ontology_info(g: Graph) -> Dict[str, Any]:
 
 
 def collect_classes(g: Graph) -> List[Dict[str, Any]]:
-    classes: Set[URIRef] = set(s for s in g.subjects(RDF.type, OWL.Class))
+    # Keep only named classes; exclude anonymous OWL class expressions (blank nodes).
+    classes: Set[URIRef] = set(s for s in g.subjects(RDF.type, OWL.Class) if isinstance(s, URIRef))
     items: List[Dict[str, Any]] = []
     for s in classes:
         labels = get_labels(g, s)
@@ -296,3 +297,4 @@ if __name__ == "__main__":
         sys.exit(1)
 
     convert_rdf(sys.argv[1])
+

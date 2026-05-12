@@ -176,3 +176,32 @@ The ontology follows semantic versioning. Breaking changes increment the major v
 ## License
 
 [MIT](LICENSE) © 2026 Nova Institute
+
+
+---
+
+## Module Repositories
+
+Methodology modules are split across three repositories:
+
+- MethodologyOntology (this repo): core ontology (methont.ttl).
+- MethodologyValidation: SHACL shapes and constraint schema.
+- MethodologyVocabulary: SKOS concept schemes used by methodology metadata.
+
+
+
+
+## Validation
+
+`powershell
+.\scripts\validate_ttl.ps1
+` 
+
+## Release Checklist
+
+1. Run .\scripts\validate_ttl.ps1.
+2. Regenerate artifacts: python convert.py methont.ttl.
+3. Confirm updated methont.owl, methont.jsonld, and docs/methont.html.
+4. Update version metadata in methont.ttl when applicable.
+5. Commit and tag release.
+

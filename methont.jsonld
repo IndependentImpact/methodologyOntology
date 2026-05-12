@@ -1,14 +1,110 @@
 [
   {
-    "@id": "http://independentimpact.org/methodology/hasActivityClassification",
+    "@id": "http://independentimpact.org/methodology/applicabilityOf",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/ApplicabilityCondition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Direct activity classification tag for methodology filtering; accepts SKOS concepts and activity resources for compatibility."
+        "@value": "applicability of"
       }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/Methodology"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/defaultValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/Constant"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "default value"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/constraintNote",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:n6ec9a89c12c64486904388cb498f69b8b28"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "constraint note"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "_:n6ec9a89c12c64486904388cb498f69b8b28",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://independentimpact.org/methodology/SemanticConstraint"
+          },
+          {
+            "@id": "http://independentimpact.org/methodology/VariableConstraint"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/MonitoringRequirement",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Monitoring requirement"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A requirement describing how variables must be measured, sampled, or verified during implementation."
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/appliesToSector",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
@@ -18,17 +114,39 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "has activity classification"
+        "@value": "applies to sector"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b5"
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
       }
     ]
   },
   {
-    "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b5",
+    "@id": "http://independentimpact.org/methodology/implementedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/Methodology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "implemented by"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:n6ec9a89c12c64486904388cb498f69b8b15"
+      }
+    ]
+  },
+  {
+    "@id": "_:n6ec9a89c12c64486904388cb498f69b8b15",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -36,10 +154,10 @@
       {
         "@list": [
           {
-            "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+            "@id": "http://www.w3.org/ns/prov#SoftwareAgent"
           },
           {
-            "@id": "http://w3id.org/aiao#Activity"
+            "@id": "http://www.w3.org/ns/prov#Plan"
           }
         ]
       }
@@ -68,20 +186,303 @@
     ]
   },
   {
-    "@id": "http://independentimpact.org/methodology/Variable",
+    "@id": "http://independentimpact.org/methodology/minValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/VariableConstraint"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "minimum value"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/validFrom",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:n6ec9a89c12c64486904388cb498f69b8b22"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "valid from"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#date"
+      }
+    ]
+  },
+  {
+    "@id": "_:n6ec9a89c12c64486904388cb498f69b8b22",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://independentimpact.org/methodology/ApplicabilityCondition"
+          },
+          {
+            "@id": "http://independentimpact.org/methodology/Methodology"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/sequenceNumber",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/EquationStep"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "sequence number"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/UncertaintyModel",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Variable"
+        "@value": "Uncertainty model"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "A defined measurable property of an owl:Thing. Can be either observed or derived."
+        "@value": "A description of uncertainty treatment for a methodology, step, or parameter."
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/hasActivityClassification",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Direct activity classification tag for methodology filtering; accepts SKOS concepts and activity resources for compatibility."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/Methodology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has activity classification"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:n6ec9a89c12c64486904388cb498f69b8b5"
+      }
+    ]
+  },
+  {
+    "@id": "_:n6ec9a89c12c64486904388cb498f69b8b5",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+          },
+          {
+            "@id": "http://w3id.org/aiao#Activity"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/territorialScope",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/ApplicabilityCondition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "territorial scope"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Location"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/EquationStep",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Equation step"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://independentimpact.org/indicator-owl/IndicatorFormula"
+      },
+      {
+        "@id": "_:n6ec9a89c12c64486904388cb498f69b8b1"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "An ordered formula that computes one variable using one or more inputs; steps chain together until the indicator is quantified."
+      }
+    ]
+  },
+  {
+    "@id": "_:n6ec9a89c12c64486904388cb498f69b8b1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://independentimpact.org/methodology/Variable"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://independentimpact.org/indicator-owl/usesSymbol"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/usesBaselineScenario",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/Methodology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "uses baseline scenario"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/BaselineScenario"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/isRealisedByVariable",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Inverse relation linking an indicator to variables that operationalize it."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://w3id.org/impactont#Indicator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is realised by variable"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/Variable"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/MonitoringFrequency",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "monitoring frequency"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://independentimpact.org/methodology/MonitoringRequirement"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/hasValueRole",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/Variable"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "value role"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/ValueRole"
       }
     ]
   },
@@ -109,72 +510,47 @@
     ]
   },
   {
-    "@id": "http://independentimpact.org/methodology/EquationStep",
+    "@id": "http://independentimpact.org/methodology/SemanticConstraint",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Equation step"
+        "@value": "Semantic constraint"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "http://independentimpact.org/indicator-owl/IndicatorFormula"
-      },
-      {
-        "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b1"
+        "@id": "http://www.w3.org/ns/shacl#NodeShape"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "An ordered formula that computes one variable using one or more inputs; steps chain together until the indicator is quantified."
+        "@value": "Qualitative rule that restricts the applicability of a methodology (e.g., facility classification, compliance status)."
       }
     ]
   },
   {
-    "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b1",
+    "@id": "http://independentimpact.org/methodology/semanticTarget",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "http://independentimpact.org/methodology/Variable"
+        "@id": "http://independentimpact.org/methodology/SemanticConstraint"
       }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://independentimpact.org/indicator-owl/usesSymbol"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/MeasuredVariable",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Measured variable"
+        "@value": "semantic target"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "http://independentimpact.org/methodology/Variable"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#disjointWith": [
-      {
-        "@id": "http://independentimpact.org/methodology/DerivedVariable"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Variable whose value is obtained from monitoring, sampling, metering, or other observation processes."
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
       }
     ]
   },
@@ -185,7 +561,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b15"
+        "@id": "_:n6ec9a89c12c64486904388cb498f69b8b25"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -201,7 +577,7 @@
     ]
   },
   {
-    "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b15",
+    "@id": "_:n6ec9a89c12c64486904388cb498f69b8b25",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -219,74 +595,47 @@
     ]
   },
   {
-    "@id": "http://independentimpact.org/methodology/validationShape",
+    "@id": "http://independentimpact.org/methodology/supersedes",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Links a methodology or constraint to the SHACL NodeShape that enforces its rules."
-      }
-    ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b8"
+        "@id": "http://independentimpact.org/methodology/Methodology"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "validation shape"
+        "@value": "supersedes"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "http://www.w3.org/ns/shacl#NodeShape"
+        "@id": "http://independentimpact.org/methodology/Methodology"
       }
     ]
   },
   {
-    "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b8",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://independentimpact.org/methodology/Methodology"
-          },
-          {
-            "@id": "http://independentimpact.org/methodology/SemanticConstraint"
-          },
-          {
-            "@id": "http://independentimpact.org/methodology/VariableConstraint"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/uncertaintyType",
+    "@id": "http://independentimpact.org/methodology/hasScaleClassification",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Examples include absolute, relative, confidenceInterval95."
+        "@value": "Direct tag that states whether the methodology is large-scale or small-scale, enabling single-hop filtering without inspecting constraint profiles."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "http://independentimpact.org/methodology/UncertaintyModel"
+        "@id": "http://independentimpact.org/methodology/Methodology"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "uncertainty type"
+        "@value": "has scale classification"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
@@ -296,234 +645,15 @@
     ]
   },
   {
-    "@id": "http://independentimpact.org/methodology/ProjectScenario",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Project scenario"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://independentimpact.org/methodology/Scenario"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Intervention scenario representing conditions with the project activity applied."
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/Scenario",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Scenario"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "A modeled context used for methodology accounting, typically representing baseline/reference conditions or project/intervention conditions."
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/hasApplicability",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has applicability"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/ApplicabilityCondition"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "http://independentimpact.org/methodology/applicabilityOf"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/validFrom",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b12"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "valid from"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#date"
-      }
-    ]
-  },
-  {
-    "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b12",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://independentimpact.org/methodology/ApplicabilityCondition"
-          },
-          {
-            "@id": "http://independentimpact.org/methodology/Methodology"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/computes",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/EquationStep"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "computes"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/Variable"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/hasEquationStep",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has equation step"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/EquationStep"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "http://independentimpact.org/methodology/equationStepOf"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/nextStep",
+    "@id": "http://independentimpact.org/methodology/forIndicator",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Creates an ordered chain of equations; the final step produces the indicator value."
+        "@value": "Links a methodology to the indicator definition whose value it produces (indicator definition in IndicatorOntology)."
       }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/EquationStep"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "next step"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/EquationStep"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/constraintNote",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b18"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "constraint note"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
-    "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b18",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://independentimpact.org/methodology/SemanticConstraint"
-          },
-          {
-            "@id": "http://independentimpact.org/methodology/VariableConstraint"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/hasSemanticConstraint",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
@@ -533,55 +663,40 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "has semantic constraint"
+        "@value": "for indicator"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "http://independentimpact.org/methodology/SemanticConstraint"
+        "@id": "http://w3id.org/impactont#Indicator"
       }
     ]
   },
   {
-    "@id": "http://independentimpact.org/methodology/hasUncertaintyModel",
+    "@id": "http://independentimpact.org/methodology/dependsOnStep",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Declares a dependency edge between equation steps for DAG-based execution plans."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b27"
+        "@id": "http://independentimpact.org/methodology/EquationStep"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "has uncertainty model"
+        "@value": "depends on step"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "http://independentimpact.org/methodology/UncertaintyModel"
-      }
-    ]
-  },
-  {
-    "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b27",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://independentimpact.org/methodology/Methodology"
-          },
-          {
-            "@id": "http://independentimpact.org/methodology/EquationStep"
-          },
-          {
-            "@id": "http://independentimpact.org/methodology/Constant"
-          }
-        ]
+        "@id": "http://independentimpact.org/methodology/EquationStep"
       }
     ]
   },
@@ -643,7 +758,7 @@
     ]
   },
   {
-    "@id": "http://independentimpact.org/methodology/usesProjectScenario",
+    "@id": "http://independentimpact.org/methodology/hasApplicability",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
@@ -655,187 +770,17 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "uses project scenario"
+        "@value": "has applicability"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/ProjectScenario"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/methodCode",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b31"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "method code"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
-    "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b31",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://independentimpact.org/methodology/MethodologyFamily"
-          },
-          {
-            "@id": "http://independentimpact.org/methodology/Methodology"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/MethodologyFamily",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Methodology family"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "A grouping of methodology versions that share the same method code lineage (e.g., ACM0001)."
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/implementedBy",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "implemented by"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b24"
-      }
-    ]
-  },
-  {
-    "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b24",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://www.w3.org/ns/prov#SoftwareAgent"
-          },
-          {
-            "@id": "http://www.w3.org/ns/prov#Plan"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/activityScope",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
         "@id": "http://independentimpact.org/methodology/ApplicabilityCondition"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "activity scope"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://w3id.org/aiao#Activity"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/hasMethodology",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Inverse helper so indicator catalogues can enumerate all compatible methodologies without bespoke queries."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://w3id.org/impactont#Indicator"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has methodology"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
     "http://www.w3.org/2002/07/owl#inverseOf": [
       {
-        "@id": "http://independentimpact.org/methodology/forIndicator"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/usesBaselineScenario",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "uses baseline scenario"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/BaselineScenario"
+        "@id": "http://independentimpact.org/methodology/applicabilityOf"
       }
     ]
   },
@@ -862,20 +807,147 @@
     ]
   },
   {
-    "@id": "http://independentimpact.org/methodology/Constant",
+    "@id": "http://independentimpact.org/methodology/MeasuredVariable",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Constant"
+        "@value": "Measured variable"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://independentimpact.org/methodology/Variable"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#disjointWith": [
+      {
+        "@id": "http://independentimpact.org/methodology/DerivedVariable"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "A fixed coefficient used by a methodology or equation step, e.g., a default GWP value."
+        "@value": "Variable whose value is obtained from monitoring, sampling, metering, or other observation processes."
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/BaselineScenario",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Baseline scenario"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://independentimpact.org/methodology/Scenario"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#disjointWith": [
+      {
+        "@id": "http://independentimpact.org/methodology/ProjectScenario"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Reference (counterfactual) scenario representing conditions without the intervention."
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/hasDataQualityRequirement",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/MonitoringRequirement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has data quality requirement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/DataQualityRequirement"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/ProjectScenario",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Project scenario"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://independentimpact.org/methodology/Scenario"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Intervention scenario representing conditions with the project activity applied."
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/uncertaintyValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/UncertaintyModel"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "uncertainty value"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/hasVersion",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/Methodology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has version"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
       }
     ]
   },
@@ -886,7 +958,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b21"
+        "@id": "_:n6ec9a89c12c64486904388cb498f69b8b12"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -902,7 +974,7 @@
     ]
   },
   {
-    "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b21",
+    "@id": "_:n6ec9a89c12c64486904388cb498f69b8b12",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -944,19 +1016,25 @@
     ]
   },
   {
-    "@id": "http://independentimpact.org/methodology/semanticTarget",
+    "@id": "http://independentimpact.org/methodology/uncertaintyType",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Examples include absolute, relative, confidenceInterval95."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "http://independentimpact.org/methodology/SemanticConstraint"
+        "@id": "http://independentimpact.org/methodology/UncertaintyModel"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "semantic target"
+        "@value": "uncertainty type"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
@@ -966,132 +1044,24 @@
     ]
   },
   {
-    "@id": "http://independentimpact.org/methodology/MonitoringFrequency",
+    "@id": "http://independentimpact.org/methodology/maxValue",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "monitoring frequency"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://independentimpact.org/methodology/MonitoringRequirement"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/SemanticConstraint",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Semantic constraint"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/shacl#NodeShape"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Qualitative rule that restricts the applicability of a methodology (e.g., facility classification, compliance status)."
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/territorialScope",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "http://independentimpact.org/methodology/ApplicabilityCondition"
+        "@id": "http://independentimpact.org/methodology/VariableConstraint"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "territorial scope"
+        "@value": "maximum value"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "http://www.w3.org/ns/prov#Location"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/ApplicabilityCondition",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Applicability condition"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Contextual requirements (e.g., activity, geography, temporal scope) that must hold before the methodology may be executed."
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/dependsOnStep",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Declares a dependency edge between equation steps for DAG-based execution plans."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/EquationStep"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "depends on step"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/EquationStep"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/supersedes",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "supersedes"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
       }
     ]
   },
@@ -1115,6 +1085,493 @@
       {
         "@language": "en",
         "@value": "Variable that functions as a symbolic placeholder in equations and may be resolved from constants or derived computations."
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/usesProjectScenario",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/Methodology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "uses project scenario"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/ProjectScenario"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/hasMethodology",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Inverse helper so indicator catalogues can enumerate all compatible methodologies without bespoke queries."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://w3id.org/impactont#Indicator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has methodology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/Methodology"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://independentimpact.org/methodology/forIndicator"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/methodCode",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:n6ec9a89c12c64486904388cb498f69b8b31"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "method code"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "_:n6ec9a89c12c64486904388cb498f69b8b31",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://independentimpact.org/methodology/MethodologyFamily"
+          },
+          {
+            "@id": "http://independentimpact.org/methodology/Methodology"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/validationShape",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Links a methodology or constraint to the SHACL NodeShape that enforces its rules."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:n6ec9a89c12c64486904388cb498f69b8b8"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "validation shape"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/ns/shacl#NodeShape"
+      }
+    ]
+  },
+  {
+    "@id": "_:n6ec9a89c12c64486904388cb498f69b8b8",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://independentimpact.org/methodology/Methodology"
+          },
+          {
+            "@id": "http://independentimpact.org/methodology/SemanticConstraint"
+          },
+          {
+            "@id": "http://independentimpact.org/methodology/VariableConstraint"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/hasEquationStep",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/Methodology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has equation step"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/EquationStep"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://independentimpact.org/methodology/equationStepOf"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/MethodologyFamily",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Methodology family"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A grouping of methodology versions that share the same method code lineage (e.g., ACM0001)."
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/supersededBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/Methodology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "superseded by"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/Methodology"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://independentimpact.org/methodology/supersedes"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/ApplicabilityCondition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Applicability condition"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Contextual requirements (e.g., activity, geography, temporal scope) that must hold before the methodology may be executed."
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/hasMonitoringRequirement",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/Methodology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has monitoring requirement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/MonitoringRequirement"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/Variable",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Variable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A defined measurable property of an owl:Thing. Can be either observed or derived."
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/activityScope",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/ApplicabilityCondition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "activity scope"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://w3id.org/aiao#Activity"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/nextStep",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Creates an ordered chain of equations; the final step produces the indicator value."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/EquationStep"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "next step"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/EquationStep"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/MinimumDataCoverage",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "minimum data coverage"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://independentimpact.org/methodology/DataQualityRequirement"
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/hasUncertaintyModel",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:n6ec9a89c12c64486904388cb498f69b8b18"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has uncertainty model"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/UncertaintyModel"
+      }
+    ]
+  },
+  {
+    "@id": "_:n6ec9a89c12c64486904388cb498f69b8b18",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://independentimpact.org/methodology/Methodology"
+          },
+          {
+            "@id": "http://independentimpact.org/methodology/EquationStep"
+          },
+          {
+            "@id": "http://independentimpact.org/methodology/Constant"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/hasVariableConstraint",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:n6ec9a89c12c64486904388cb498f69b8b2"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has variable constraint"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/VariableConstraint"
+      }
+    ]
+  },
+  {
+    "@id": "_:n6ec9a89c12c64486904388cb498f69b8b2",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://independentimpact.org/methodology/Methodology"
+          },
+          {
+            "@id": "http://independentimpact.org/methodology/EquationStep"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/Constant",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Constant"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A fixed coefficient used by a methodology or equation step, e.g., a default GWP value."
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/VariableConstraint",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Variable constraint"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/shacl#NodeShape"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Quantitative bound or validation rule applied to a measured or computed variable."
+      }
+    ]
+  },
+  {
+    "@id": "http://independentimpact.org/methodology/hasSemanticConstraint",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://independentimpact.org/methodology/Methodology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has semantic constraint"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://independentimpact.org/methodology/SemanticConstraint"
       }
     ]
   },
@@ -1151,208 +1608,42 @@
     ]
   },
   {
-    "@id": "http://independentimpact.org/methodology/uncertaintyValue",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/UncertaintyModel"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "uncertainty value"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/isRealisedByVariable",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Inverse relation linking an indicator to variables that operationalize it."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://w3id.org/impactont#Indicator"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "is realised by variable"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/Variable"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/maxValue",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/VariableConstraint"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "maximum value"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/hasValueRole",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Variable"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "value role"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/ValueRole"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/VariableConstraint",
+    "@id": "http://independentimpact.org/methodology/Scenario",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Variable constraint"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/shacl#NodeShape"
+        "@value": "Scenario"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "Quantitative bound or validation rule applied to a measured or computed variable."
+        "@value": "A modeled context used for methodology accounting, typically representing baseline/reference conditions or project/intervention conditions."
       }
     ]
   },
   {
-    "@id": "http://independentimpact.org/methodology/hasDataQualityRequirement",
+    "@id": "http://independentimpact.org/methodology/computes",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "http://independentimpact.org/methodology/MonitoringRequirement"
+        "@id": "http://independentimpact.org/methodology/EquationStep"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "has data quality requirement"
+        "@value": "computes"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "http://independentimpact.org/methodology/DataQualityRequirement"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/applicabilityOf",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/ApplicabilityCondition"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "applicability of"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/supersededBy",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "superseded by"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "http://independentimpact.org/methodology/supersedes"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/MonitoringRequirement",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Monitoring requirement"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "A requirement describing how variables must be measured, sampled, or verified during implementation."
+        "@id": "http://independentimpact.org/methodology/Variable"
       }
     ]
   },
@@ -1380,50 +1671,6 @@
     ]
   },
   {
-    "@id": "http://independentimpact.org/methodology/hasVersion",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has version"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/minValue",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/VariableConstraint"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "minimum value"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
-      }
-    ]
-  },
-  {
     "@id": "http://independentimpact.org/methodology/equationStepOf",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
@@ -1442,253 +1689,6 @@
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
         "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/appliesToSector",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "applies to sector"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/hasScaleClassification",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Direct tag that states whether the methodology is large-scale or small-scale, enabling single-hop filtering without inspecting constraint profiles."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has scale classification"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/defaultValue",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Constant"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "default value"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/BaselineScenario",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Baseline scenario"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://independentimpact.org/methodology/Scenario"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#disjointWith": [
-      {
-        "@id": "http://independentimpact.org/methodology/ProjectScenario"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Reference (counterfactual) scenario representing conditions without the intervention."
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/forIndicator",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Links a methodology to the indicator definition whose value it produces (indicator definition in IndicatorOntology)."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "for indicator"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://w3id.org/impactont#Indicator"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/UncertaintyModel",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Uncertainty model"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "A description of uncertainty treatment for a methodology, step, or parameter."
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/MinimumDataCoverage",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "minimum data coverage"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://independentimpact.org/methodology/DataQualityRequirement"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/hasMonitoringRequirement",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/Methodology"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has monitoring requirement"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/MonitoringRequirement"
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/hasVariableConstraint",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b2"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has variable constraint"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://independentimpact.org/methodology/VariableConstraint"
-      }
-    ]
-  },
-  {
-    "@id": "_:nedec9f3e7c6b4078a581de57b3bdd868b2",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://independentimpact.org/methodology/Methodology"
-          },
-          {
-            "@id": "http://independentimpact.org/methodology/EquationStep"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "http://independentimpact.org/methodology/sequenceNumber",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://independentimpact.org/methodology/EquationStep"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "sequence number"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#positiveInteger"
       }
     ]
   }

@@ -6,19 +6,100 @@
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 >
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/realisesIndicator">
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b20">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
+    <rdf:rest rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b21"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasVersion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">has version</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/appliesToSector">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">applies to sector</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasValueRole">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Variable"/>
-    <rdfs:range rdf:resource="http://w3id.org/impactont#Indicator"/>
-    <rdfs:label xml:lang="en">realises indicator</rdfs:label>
-    <rdfs:comment>An indicator is a convention for indicating the state of an owl:Thing. A variable is a set of observations or derivations according to some convention, i.e., an indicator.</rdfs:comment>
-    <owl:inverseOf rdf:resource="http://independentimpact.org/methodology/isRealisedByVariable"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/ValueRole"/>
+    <rdfs:label xml:lang="en">value role</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b17">
+    <rdf:first rdf:resource="http://www.w3.org/ns/prov#Plan"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/validThrough">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b25"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:label xml:lang="en">valid through</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://independentimpact.org/methodology/formulaId">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:label xml:lang="en">formula id</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/uncertaintyType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/UncertaintyModel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">uncertainty type</rdfs:label>
+    <rdfs:comment xml:lang="en">Examples include absolute, relative, confidenceInterval95.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/defaultValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Constant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">default value</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/ValueRole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Value role</rdfs:label>
+    <skos:definition xml:lang="en">Role that a symbol plays within the methodology (measured input or calculated output).</skos:definition>
+    <rdfs:comment xml:lang="en">Use this class for methodology symbol roles (e.g., MeasuredInput, DerivedOutput); keep it separate from provenance role vocabularies.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b13"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasUncertaintyModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b18"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/UncertaintyModel"/>
+    <rdfs:label xml:lang="en">has uncertainty model</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/SemanticConstraint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:label xml:lang="en">Semantic constraint</rdfs:label>
+    <skos:definition xml:lang="en">Qualitative rule that restricts the applicability of a methodology (e.g., facility classification, compliance status).</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/nextStep">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
+    <rdfs:label xml:lang="en">next step</rdfs:label>
+    <rdfs:comment xml:lang="en">Creates an ordered chain of equations; the final step produces the indicator value.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/supersedes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:label xml:lang="en">supersedes</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/MinimumDataCoverage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/DataQualityRequirement"/>
+    <rdfs:label xml:lang="en">minimum data coverage</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b7">
+    <rdf:first rdf:resource="http://w3id.org/aiao#Activity"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://independentimpact.org/methodology/isRealisedByVariable">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -27,80 +108,34 @@
     <rdfs:label xml:lang="en">is realised by variable</rdfs:label>
     <rdfs:comment xml:lang="en">Inverse relation linking an indicator to variables that operationalize it.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/sequenceNumber">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
-    <rdfs:label xml:lang="en">sequence number</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/forIndicator">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/usesProjectScenario">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:range rdf:resource="http://w3id.org/impactont#Indicator"/>
-    <rdfs:label xml:lang="en">for indicator</rdfs:label>
-    <rdfs:comment xml:lang="en">Links a methodology to the indicator definition whose value it produces (indicator definition in IndicatorOntology).</rdfs:comment>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/ProjectScenario"/>
+    <rdfs:label xml:lang="en">uses project scenario</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/validFrom">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b12"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <rdfs:label xml:lang="en">valid from</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/SemanticConstraint">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/Methodology">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <rdfs:label xml:lang="en">Semantic constraint</rdfs:label>
-    <skos:definition xml:lang="en">Qualitative rule that restricts the applicability of a methodology (e.g., facility classification, compliance status).</skos:definition>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Plan"/>
+    <rdfs:label xml:lang="en">Methodology</rdfs:label>
+    <skos:definition xml:lang="en">A structured set of applicability conditions, constraints, and ordered equations that produces a quantified indicator value.</skos:definition>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/validationShape">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b8"/>
-    <rdfs:range rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <rdfs:label xml:lang="en">validation shape</rdfs:label>
-    <rdfs:comment xml:lang="en">Links a methodology or constraint to the SHACL NodeShape that enforces its rules.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/usesConstant">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b21"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/Constant"/>
-    <rdfs:label xml:lang="en">has constant</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/appliesToSector">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasActivityClassification">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <rdfs:label xml:lang="en">applies to sector</rdfs:label>
+    <rdfs:range rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b5"/>
+    <rdfs:label xml:lang="en">has activity classification</rdfs:label>
+    <rdfs:comment xml:lang="en">Direct activity classification tag for methodology filtering; accepts SKOS concepts and activity resources for compatibility.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/equationStepOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:label xml:lang="en">equation step of</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/MinimumDataCoverage">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/DerivedVariable">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/DataQualityRequirement"/>
-    <rdfs:label xml:lang="en">minimum data coverage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/Variable"/>
+    <rdfs:label xml:lang="en">Derived variable</rdfs:label>
+    <skos:definition xml:lang="en">Variable that functions as a symbolic placeholder in equations and may be resolved from constants or derived computations.</skos:definition>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/dependsOnStep">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
-    <rdfs:label xml:lang="en">depends on step</rdfs:label>
-    <rdfs:comment xml:lang="en">Declares a dependency edge between equation steps for DAG-based execution plans.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasScaleClassification">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <rdfs:label xml:lang="en">has scale classification</rdfs:label>
-    <rdfs:comment xml:lang="en">Direct tag that states whether the methodology is large-scale or small-scale, enabling single-hop filtering without inspecting constraint profiles.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/methodCode">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b31"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">method code</rdfs:label>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b22">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b23"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://independentimpact.org/methodology/">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
@@ -116,99 +151,62 @@
     <owl:imports rdf:resource="http://www.w3.org/ns/shacl"/>
     <owl:imports rdf:resource="http://qudt.org/schema/qudt/"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/uncertaintyValue">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/UncertaintyModel"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <rdfs:label xml:lang="en">uncertainty value</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/constraintNote">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b18"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">constraint note</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/implementedBy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:range rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b24"/>
-    <rdfs:label xml:lang="en">implemented by</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/MethodologyFamily">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Methodology family</rdfs:label>
-    <skos:definition xml:lang="en">A grouping of methodology versions that share the same method code lineage (e.g., ACM0001).</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b33">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b14">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/applicabilityOf">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/Variable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Variable</rdfs:label>
+    <skos:definition xml:lang="en">A defined measurable property of an owl:Thing. Can be either observed or derived.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/activityScope">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://independentimpact.org/methodology/ApplicabilityCondition"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:label xml:lang="en">applicability of</rdfs:label>
+    <rdfs:range rdf:resource="http://w3id.org/aiao#Activity"/>
+    <rdfs:label xml:lang="en">activity scope</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/computes">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/validFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b22"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:label xml:lang="en">valid from</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/MeasuredVariable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/Variable"/>
+    <rdfs:label xml:lang="en">Measured variable</rdfs:label>
+    <skos:definition xml:lang="en">Variable whose value is obtained from monitoring, sampling, metering, or other observation processes.</skos:definition>
+    <owl:disjointWith rdf:resource="http://independentimpact.org/methodology/DerivedVariable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasVariableConstraint">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/Variable"/>
-    <rdfs:label xml:lang="en">computes</rdfs:label>
+    <rdfs:domain rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b2"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/VariableConstraint"/>
+    <rdfs:label xml:lang="en">has variable constraint</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/territorialScope">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/ApplicabilityCondition"/>
-    <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Location"/>
-    <rdfs:label xml:lang="en">territorial scope</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b3">
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b9">
     <rdf:first rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdf:rest rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b4"/>
+    <rdf:rest rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b10"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/usesBaselineScenario">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasMonitoringRequirement">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/BaselineScenario"/>
-    <rdfs:label xml:lang="en">uses baseline scenario</rdfs:label>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/MonitoringRequirement"/>
+    <rdfs:label xml:lang="en">has monitoring requirement</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasValueRole">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Variable"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/ValueRole"/>
-    <rdfs:label xml:lang="en">value role</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/EquationStep">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://independentimpact.org/indicator-owl/IndicatorFormula"/>
-    <rdfs:subClassOf rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b1"/>
-    <rdfs:label xml:lang="en">Equation step</rdfs:label>
-    <skos:definition xml:lang="en">An ordered formula that computes one variable using one or more inputs; steps chain together until the indicator is quantified.</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/semanticTarget">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/SemanticConstraint"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <rdfs:label xml:lang="en">semantic target</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b30">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/Constant"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/nextStep">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/sequenceNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
-    <rdfs:label xml:lang="en">next step</rdfs:label>
-    <rdfs:comment xml:lang="en">Creates an ordered chain of equations; the final step produces the indicator value.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    <rdfs:label xml:lang="en">sequence number</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/ApplicabilityCondition">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/BaselineScenario">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Applicability condition</rdfs:label>
-    <skos:definition xml:lang="en">Contextual requirements (e.g., activity, geography, temporal scope) that must hold before the methodology may be executed.</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b17">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/Scenario"/>
+    <rdfs:label xml:lang="en">Baseline scenario</rdfs:label>
+    <skos:definition xml:lang="en">Reference (counterfactual) scenario representing conditions without the intervention.</skos:definition>
+    <owl:disjointWith rdf:resource="http://independentimpact.org/methodology/ProjectScenario"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://independentimpact.org/methodology/hasMethodology">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -218,56 +216,108 @@
     <rdfs:comment xml:lang="en">Inverse helper so indicator catalogues can enumerate all compatible methodologies without bespoke queries.</rdfs:comment>
     <owl:inverseOf rdf:resource="http://independentimpact.org/methodology/forIndicator"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/supersededBy">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/dependsOnStep">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:label xml:lang="en">superseded by</rdfs:label>
-    <owl:inverseOf rdf:resource="http://independentimpact.org/methodology/supersedes"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/ProjectScenario">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/Scenario"/>
-    <rdfs:label xml:lang="en">Project scenario</rdfs:label>
-    <skos:definition xml:lang="en">Intervention scenario representing conditions with the project activity applied.</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b9">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdf:rest rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b10"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b27">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b28"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b16">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/ApplicabilityCondition"/>
-    <rdf:rest rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b17"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasEquationStep">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
     <rdfs:range rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
-    <rdfs:label xml:lang="en">has equation step</rdfs:label>
-    <owl:inverseOf rdf:resource="http://independentimpact.org/methodology/equationStepOf"/>
+    <rdfs:label xml:lang="en">depends on step</rdfs:label>
+    <rdfs:comment xml:lang="en">Declares a dependency edge between equation steps for DAG-based execution plans.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b8">
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b25">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b9"/>
+    <owl:unionOf rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b26"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasActivityClassification">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/DataQualityRequirement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/MonitoringRequirement"/>
+    <rdfs:label xml:lang="en">Data quality requirement</rdfs:label>
+    <skos:definition xml:lang="en">A rule defining completeness, calibration, or QA/QC thresholds for accepted data.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/Scenario">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Scenario</rdfs:label>
+    <skos:definition xml:lang="en">A modeled context used for methodology accounting, typically representing baseline/reference conditions or project/intervention conditions.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b24">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasDataQualityRequirement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/MonitoringRequirement"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/DataQualityRequirement"/>
+    <rdfs:label xml:lang="en">has data quality requirement</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b26">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/ApplicabilityCondition"/>
+    <rdf:rest rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b27"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/implementedBy">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:range rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b5"/>
-    <rdfs:label xml:lang="en">has activity classification</rdfs:label>
-    <rdfs:comment xml:lang="en">Direct activity classification tag for methodology filtering; accepts SKOS concepts and activity resources for compatibility.</rdfs:comment>
+    <rdfs:range rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b15"/>
+    <rdfs:label xml:lang="en">implemented by</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b6">
-    <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <rdf:rest rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b7"/>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/minValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/VariableConstraint"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">minimum value</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b13">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/ApplicabilityCondition"/>
-    <rdf:rest rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b14"/>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/Constant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Constant</rdfs:label>
+    <skos:definition xml:lang="en">A fixed coefficient used by a methodology or equation step, e.g., a default GWP value.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/methodCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b31"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">method code</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/realisesIndicator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Variable"/>
+    <rdfs:range rdf:resource="http://w3id.org/impactont#Indicator"/>
+    <rdfs:label xml:lang="en">realises indicator</rdfs:label>
+    <rdfs:comment>An indicator is a convention for indicating the state of an owl:Thing. A variable is a set of observations or derivations according to some convention, i.e., an indicator.</rdfs:comment>
+    <owl:inverseOf rdf:resource="http://independentimpact.org/methodology/isRealisedByVariable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/usesBaselineScenario">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/BaselineScenario"/>
+    <rdfs:label xml:lang="en">uses baseline scenario</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b18">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b19"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/uncertaintyValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/UncertaintyModel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">uncertainty value</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b13">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdf:rest rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b14"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/MonitoringFrequency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/MonitoringRequirement"/>
+    <rdfs:label xml:lang="en">monitoring frequency</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/forIndicator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:range rdf:resource="http://w3id.org/impactont#Indicator"/>
+    <rdfs:label xml:lang="en">for indicator</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a methodology to the indicator definition whose value it produces (indicator definition in IndicatorOntology).</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://independentimpact.org/methodology/hasApplicability">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -276,128 +326,34 @@
     <rdfs:label xml:lang="en">has applicability</rdfs:label>
     <owl:inverseOf rdf:resource="http://independentimpact.org/methodology/applicabilityOf"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/DataQualityRequirement">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/MonitoringRequirement"/>
-    <rdfs:label xml:lang="en">Data quality requirement</rdfs:label>
-    <skos:definition xml:lang="en">A rule defining completeness, calibration, or QA/QC thresholds for accepted data.</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/BaselineScenario">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/Scenario"/>
-    <rdfs:label xml:lang="en">Baseline scenario</rdfs:label>
-    <skos:definition xml:lang="en">Reference (counterfactual) scenario representing conditions without the intervention.</skos:definition>
-    <owl:disjointWith rdf:resource="http://independentimpact.org/methodology/ProjectScenario"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b5">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b6"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b14">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/defaultValue">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Constant"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <rdfs:label xml:lang="en">default value</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/MonitoringRequirement">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Monitoring requirement</rdfs:label>
-    <skos:definition xml:lang="en">A requirement describing how variables must be measured, sampled, or verified during implementation.</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b23">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/Variable">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Variable</rdfs:label>
-    <skos:definition xml:lang="en">A defined measurable property of an owl:Thing. Can be either observed or derived.</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/DerivedVariable">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/Variable"/>
-    <rdfs:label xml:lang="en">Derived variable</rdfs:label>
-    <skos:definition xml:lang="en">Variable that functions as a symbolic placeholder in equations and may be resolved from constants or derived computations.</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/usesProjectScenario">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/ProjectScenario"/>
-    <rdfs:label xml:lang="en">uses project scenario</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/Methodology">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Plan"/>
-    <rdfs:label xml:lang="en">Methodology</rdfs:label>
-    <skos:definition xml:lang="en">A structured set of applicability conditions, constraints, and ordered equations that produces a quantified indicator value.</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/uncertaintyType">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/UncertaintyModel"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <rdfs:label xml:lang="en">uncertainty type</rdfs:label>
-    <rdfs:comment xml:lang="en">Examples include absolute, relative, confidenceInterval95.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/UncertaintyModel">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Uncertainty model</rdfs:label>
-    <skos:definition xml:lang="en">A description of uncertainty treatment for a methodology, step, or parameter.</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/MeasuredVariable">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/Variable"/>
-    <rdfs:label xml:lang="en">Measured variable</rdfs:label>
-    <skos:definition xml:lang="en">Variable whose value is obtained from monitoring, sampling, metering, or other observation processes.</skos:definition>
-    <owl:disjointWith rdf:resource="http://independentimpact.org/methodology/DerivedVariable"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/Constant">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Constant</rdfs:label>
-    <skos:definition xml:lang="en">A fixed coefficient used by a methodology or equation step, e.g., a default GWP value.</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasVariableConstraint">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b2"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/VariableConstraint"/>
-    <rdfs:label xml:lang="en">has variable constraint</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasUncertaintyModel">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b27"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/UncertaintyModel"/>
-    <rdfs:label xml:lang="en">has uncertainty model</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/VariableConstraint">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <rdfs:label xml:lang="en">Variable constraint</rdfs:label>
-    <skos:definition xml:lang="en">Quantitative bound or validation rule applied to a measured or computed variable.</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasSemanticConstraint">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/SemanticConstraint"/>
-    <rdfs:label xml:lang="en">has semantic constraint</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/ValueRole">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Value role</rdfs:label>
-    <skos:definition xml:lang="en">Role that a symbol plays within the methodology (measured input or calculated output).</skos:definition>
-    <rdfs:comment xml:lang="en">Use this class for methodology symbol roles (e.g., MeasuredInput, DerivedOutput); keep it separate from provenance role vocabularies.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b32">
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b32">
     <rdf:first rdf:resource="http://independentimpact.org/methodology/MethodologyFamily"/>
-    <rdf:rest rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b33"/>
+    <rdf:rest rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b33"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/minValue">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/VariableConstraint"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <rdfs:label xml:lang="en">minimum value</rdfs:label>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/EquationStep">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://independentimpact.org/indicator-owl/IndicatorFormula"/>
+    <rdfs:subClassOf rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b1"/>
+    <rdfs:label xml:lang="en">Equation step</rdfs:label>
+    <skos:definition xml:lang="en">An ordered formula that computes one variable using one or more inputs; steps chain together until the indicator is quantified.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/semanticTarget">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/SemanticConstraint"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">semantic target</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasEquationStep">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
+    <rdfs:label xml:lang="en">has equation step</rdfs:label>
+    <owl:inverseOf rdf:resource="http://independentimpact.org/methodology/equationStepOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/ApplicabilityCondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Applicability condition</rdfs:label>
+    <skos:definition xml:lang="en">Contextual requirements (e.g., activity, geography, temporal scope) that must hold before the methodology may be executed.</skos:definition>
   </rdf:Description>
   <rdf:Description rdf:about="http://independentimpact.org/methodology/constrainsVariable">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -405,57 +361,29 @@
     <rdfs:range rdf:resource="http://independentimpact.org/methodology/Variable"/>
     <rdfs:label xml:lang="en">constrains variable</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b21">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/MethodologyFamily">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b22"/>
+    <rdfs:label xml:lang="en">Methodology family</rdfs:label>
+    <skos:definition xml:lang="en">A grouping of methodology versions that share the same method code lineage (e.g., ACM0001).</skos:definition>
   </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasVersion">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">has version</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasDataQualityRequirement">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/applicabilityOf">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/MonitoringRequirement"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/DataQualityRequirement"/>
-    <rdfs:label xml:lang="en">has data quality requirement</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/supersedes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/ApplicabilityCondition"/>
     <rdfs:range rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:label xml:lang="en">supersedes</rdfs:label>
+    <rdfs:label xml:lang="en">applicability of</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b18">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b19"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b25">
-    <rdf:first rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
-    <rdf:rest rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b26"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b22">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdf:rest rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b23"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b26">
-    <rdf:first rdf:resource="http://www.w3.org/ns/prov#Plan"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b11">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/VariableConstraint"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasMonitoringRequirement">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasScaleClassification">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdfs:range rdf:resource="http://independentimpact.org/methodology/MonitoringRequirement"/>
-    <rdfs:label xml:lang="en">has monitoring requirement</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">has scale classification</rdfs:label>
+    <rdfs:comment xml:lang="en">Direct tag that states whether the methodology is large-scale or small-scale, enabling single-hop filtering without inspecting constraint profiles.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b4">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/equationStepOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:label xml:lang="en">equation step of</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://independentimpact.org/methodology/maxValue">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
@@ -463,75 +391,147 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     <rdfs:label xml:lang="en">maximum value</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b12">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/supersededBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:label xml:lang="en">superseded by</rdfs:label>
+    <owl:inverseOf rdf:resource="http://independentimpact.org/methodology/supersedes"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/constraintNote">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b28"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">constraint note</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/hasSemanticConstraint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/SemanticConstraint"/>
+    <rdfs:label xml:lang="en">has semantic constraint</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b2">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b13"/>
+    <owl:unionOf rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b3"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b19">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/SemanticConstraint"/>
-    <rdf:rest rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b20"/>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/computes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/Variable"/>
+    <rdfs:label xml:lang="en">computes</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b10">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/SemanticConstraint"/>
-    <rdf:rest rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b11"/>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b16">
+    <rdf:first rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+    <rdf:rest rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b17"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b31">
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b6">
+    <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:rest rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b28">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b32"/>
+    <owl:unionOf rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b29"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b1">
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/ProjectScenario">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/Scenario"/>
+    <rdfs:label xml:lang="en">Project scenario</rdfs:label>
+    <skos:definition xml:lang="en">Intervention scenario representing conditions with the project activity applied.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/MonitoringRequirement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Monitoring requirement</rdfs:label>
+    <skos:definition xml:lang="en">A requirement describing how variables must be measured, sampled, or verified during implementation.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b4">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/validationShape">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b8"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:label xml:lang="en">validation shape</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a methodology or constraint to the SHACL NodeShape that enforces its rules.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/territorialScope">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/ApplicabilityCondition"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Location"/>
+    <rdfs:label xml:lang="en">territorial scope</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b19">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdf:rest rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b20"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b15">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b16"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b10">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/SemanticConstraint"/>
+    <rdf:rest rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b11"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b33">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/UncertaintyModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Uncertainty model</rdfs:label>
+    <skos:definition xml:lang="en">A description of uncertainty treatment for a methodology, step, or parameter.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b30">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/VariableConstraint"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b11">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/VariableConstraint"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b29">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/SemanticConstraint"/>
+    <rdf:rest rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b30"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/usesConstant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b12"/>
+    <rdfs:range rdf:resource="http://independentimpact.org/methodology/Constant"/>
+    <rdfs:label xml:lang="en">has constant</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://independentimpact.org/methodology/VariableConstraint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:label xml:lang="en">Variable constraint</rdfs:label>
+    <skos:definition xml:lang="en">Quantitative bound or validation rule applied to a measured or computed variable.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b31">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b32"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b9"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b27">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/Methodology"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b23">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/ApplicabilityCondition"/>
+    <rdf:rest rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b24"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b21">
+    <rdf:first rdf:resource="http://independentimpact.org/methodology/Constant"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b1">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://independentimpact.org/indicator-owl/usesSymbol"/>
     <owl:allValuesFrom rdf:resource="http://independentimpact.org/methodology/Variable"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b20">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/VariableConstraint"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b7">
-    <rdf:first rdf:resource="http://w3id.org/aiao#Activity"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/activityScope">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://independentimpact.org/methodology/ApplicabilityCondition"/>
-    <rdfs:range rdf:resource="http://w3id.org/aiao#Activity"/>
-    <rdfs:label xml:lang="en">activity scope</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/validThrough">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b15"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <rdfs:label xml:lang="en">valid through</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/Scenario">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Scenario</rdfs:label>
-    <skos:definition xml:lang="en">A modeled context used for methodology accounting, typically representing baseline/reference conditions or project/intervention conditions.</skos:definition>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://independentimpact.org/methodology/MonitoringFrequency">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://independentimpact.org/methodology/MonitoringRequirement"/>
-    <rdfs:label xml:lang="en">monitoring frequency</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b24">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b25"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b2">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b3"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b28">
+  <rdf:Description rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b3">
     <rdf:first rdf:resource="http://independentimpact.org/methodology/Methodology"/>
-    <rdf:rest rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b29"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b29">
-    <rdf:first rdf:resource="http://independentimpact.org/methodology/EquationStep"/>
-    <rdf:rest rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b30"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b15">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="nedec9f3e7c6b4078a581de57b3bdd868b16"/>
+    <rdf:rest rdf:nodeID="n6ec9a89c12c64486904388cb498f69b8b4"/>
   </rdf:Description>
 </rdf:RDF>
