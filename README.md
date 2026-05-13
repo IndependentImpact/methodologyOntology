@@ -52,9 +52,7 @@ MethOnt builds on the following standard vocabularies:
 | `meth:VariableConstraint` | Quantitative bound or validation rule applied to a measured or computed variable. Subclass of `sh:NodeShape`. |
 | `meth:EquationStep` | An ordered formula that computes one variable from one or more inputs; steps chain together until the indicator is quantified. Subclass of `ind:IndicatorFormula`. |
 | `meth:Variable` | A symbolic quantity used in methodology equations. |
-| `meth:MeasuredVariable` | Variable whose value is obtained from monitoring, sampling, or metering. |
-| `meth:DerivedVariable` | Variable that functions as a symbolic placeholder, resolved from constants or derived computations. |
-| `meth:ValueRole` | Role that a symbol plays within a methodology (measured input or calculated output). |
+| `meth:VariableRole` | Modality of a variable within the context of a particular methodology (for example, measured input or derived output). |
 | `meth:MethodologyFamily` | A grouping of methodology versions sharing the same method-code lineage (e.g., ACM0001). |
 | `meth:MonitoringRequirement` | How variables must be measured, sampled, or verified during implementation. |
 | `meth:DataQualityRequirement` | Completeness, calibration, or QA/QC thresholds for accepted data. |
@@ -204,4 +202,5 @@ This repository now contains three methodology modules as folders:
 3. Confirm updated methont.owl, methont.jsonld, and docs/methont.html.
 4. Update version metadata in methont.ttl when applicable.
 5. Commit and tag release.
+
 

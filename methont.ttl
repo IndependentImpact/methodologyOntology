@@ -22,6 +22,7 @@ meth: a owl:Ontology ;
   owl:versionInfo "1.1.0" ;
   owl:imports <http://independentimpact.org/indicator-owl/> ;
   owl:imports <http://w3id.org/aiao> ;
+  owl:imports <http://w3id.org/impactont> ;
   owl:imports <http://www.w3.org/ns/prov-o> ;
   owl:imports <http://www.w3.org/ns/shacl> ;
   owl:imports <http://qudt.org/schema/qudt/> .
@@ -31,11 +32,12 @@ meth: a owl:Ontology ;
 #################################################################
 
 meth:Methodology a owl:Class ;
-  rdfs:subClassOf prov:Plan ;
+  rdfs:subClassOf prov:Plan , aiao:Control ;
   rdfs:label "Methodology"@en ;
   skos:definition "A structured set of applicability conditions, constraints, and ordered equations that produces a quantified indicator value."@en .
 
 meth:ApplicabilityCondition a owl:Class ;
+  rdfs:subClassOf aiao:Control ;
   rdfs:label "Applicability condition"@en ;
   skos:definition "Contextual requirements (e.g., activity, geography, temporal scope) that must hold before the methodology may be executed."@en .
 
@@ -49,21 +51,17 @@ meth:VariableConstraint a owl:Class ;
   rdfs:label "Variable constraint"@en ;
   skos:definition "Quantitative bound or validation rule applied to a measured or computed variable."@en .
 
-meth:Scenario a owl:Class ;
-  rdfs:label "Scenario"@en ;
-  skos:definition "A modeled context used for methodology accounting, typically representing baseline/reference conditions or project/intervention conditions."@en .
+meth:BaselineState a owl:Class ;
+  rdfs:subClassOf impact:State ;
+  rdfs:label "Baseline state"@en ;
+  skos:definition "Reference (counterfactual) state representing conditions without the intervention."@en .
 
-meth:BaselineScenario a owl:Class ;
-  rdfs:subClassOf meth:Scenario ;
-  rdfs:label "Baseline scenario"@en ;
-  skos:definition "Reference (counterfactual) scenario representing conditions without the intervention."@en .
+meth:ProjectState a owl:Class ;
+  rdfs:subClassOf impact:State ;
+  rdfs:label "Project state"@en ;
+  skos:definition "Intervention state representing conditions with the project activity applied."@en .
 
-meth:ProjectScenario a owl:Class ;
-  rdfs:subClassOf meth:Scenario ;
-  rdfs:label "Project scenario"@en ;
-  skos:definition "Intervention scenario representing conditions with the project activity applied."@en .
-
-meth:BaselineScenario owl:disjointWith meth:ProjectScenario .
+meth:BaselineState owl:disjointWith meth:ProjectState .
 
 meth:EquationStep a owl:Class ;
   rdfs:subClassOf ind:IndicatorFormula ;
@@ -75,51 +73,56 @@ meth:EquationStep a owl:Class ;
   rdfs:label "Equation step"@en ;
   skos:definition "An ordered formula that computes one variable using one or more inputs; steps chain together until the indicator is quantified."@en .
 
+meth:Constant a owl:Class ;
+  rdfs:label "Constant"@en ;
+  skos:definition "A fixed quantity used by a methodology or equation step, e.g., a default GWP value."@en .
+
 meth:Variable a owl:Class ;
+  rdfs:subClassOf ind:Symbol ;
   rdfs:label "Variable"@en ;
-  skos:definition "A defined measurable property of an owl:Thing. Can be either observed or derived."@en .
+  skos:definition "A methodology variable that represents a quantity to be measured or computed and can realize an indicator through its assigned values."@en .
 
-meth:MeasuredVariable a owl:Class ;
-  rdfs:subClassOf meth:Variable ;
-  rdfs:label "Measured variable"@en ;
-  skos:definition "Variable whose value is obtained from monitoring, sampling, metering, or other observation processes."@en .
+meth:Value a owl:Class ;
+  rdfs:label "Value"@en ;
+  skos:definition "A value assignment associated with a variable in a methodology context."@en .
 
-meth:DerivedVariable a owl:Class ;
-  rdfs:subClassOf meth:Variable ;
-  rdfs:label "Derived variable"@en ;
-  skos:definition "Variable that functions as a symbolic placeholder in equations and may be resolved from constants or derived computations."@en .
+meth:MeasuredValue a owl:Class ;
+  rdfs:subClassOf meth:Value ;
+  rdfs:label "Measured value"@en ;
+  skos:definition "A value obtained by observation, monitoring, sampling, or metering."@en .
 
-meth:MeasuredVariable owl:disjointWith meth:DerivedVariable .
+meth:DerivedValue a owl:Class ;
+  rdfs:subClassOf meth:Value ;
+  rdfs:label "Derived value"@en ;
+  skos:definition "A value computed or inferred from other values using methodology equations or rules."@en .
 
-meth:ValueRole a owl:Class ;
-  rdfs:label "Value role"@en ;
-  skos:definition "Role that a symbol plays within the methodology (measured input or calculated output)."@en ;
-  rdfs:comment "Use this class for methodology symbol roles (e.g., MeasuredInput, DerivedOutput); keep it separate from provenance role vocabularies."@en .
+meth:MeasuredValue owl:disjointWith meth:DerivedValue .
+
+meth:VariableRole a owl:Class ;
+  rdfs:label "Variable role"@en ;
+  skos:definition "A role assignment that specifies how a variable is used in a particular methodology (e.g., input, output, baseline, project)."@en ;
+  rdfs:comment "Use this class to classify variable function in methodology logic and reporting context; role is attached to the variable, while measured/derived distinction is captured on values."@en .
 
 meth:MethodologyFamily a owl:Class ;
   rdfs:label "Methodology family"@en ;
   skos:definition "A grouping of methodology versions that share the same method code lineage (e.g., ACM0001)."@en .
 
-meth:MonitoringRequirement a owl:Class ;
-  rdfs:label "Monitoring requirement"@en ;
-  skos:definition "A requirement describing how variables must be measured, sampled, or verified during implementation."@en .
-
-meth:Constant a owl:Class ;
-  rdfs:label "Constant"@en ;
-  skos:definition "A fixed coefficient used by a methodology or equation step, e.g., a default GWP value."@en .
-
 meth:UncertaintyModel a owl:Class ;
   rdfs:label "Uncertainty model"@en ;
   skos:definition "A description of uncertainty treatment for a methodology, step, or parameter."@en .
+  
+meth:MonitoringRequirement a owl:Class ;
+  rdfs:label "Monitoring requirement"@en ;
+  skos:definition "A requirement describing what varables should be measured, how variables must be sampled, measured, or verified during implementation."@en .
+
+meth:MonitoringFrequency a owl:Class ;
+  rdfs:subClassOf meth:MonitoringRequirement ;
+  rdfs:label "monitoring frequency"@en .
 
 meth:DataQualityRequirement a owl:Class ;
   rdfs:subClassOf meth:MonitoringRequirement ;
   rdfs:label "Data quality requirement"@en ;
   skos:definition "A rule defining completeness, calibration, or QA/QC thresholds for accepted data."@en .
-
-meth:MonitoringFrequency a owl:Class ;
-  rdfs:subClassOf meth:MonitoringRequirement ;
-  rdfs:label "monitoring frequency"@en .
 
 meth:MinimumDataCoverage a owl:Class ;
   rdfs:subClassOf meth:DataQualityRequirement ;
@@ -129,19 +132,23 @@ meth:MinimumDataCoverage a owl:Class ;
 # Object properties
 #################################################################
 
-meth:realisesIndicator a owl:ObjectProperty ;
-  rdfs:domain meth:Variable ;
-  rdfs:range impact:Indicator ;
-  rdfs:label "realises indicator"@en ;
-  rdfs:comment "An indicator is a convention for indicating the state of an owl:Thing. A variable is a set of observations or derivations according to some convention, i.e., an indicator." ;
-  owl:inverseOf meth:isRealisedByVariable .
+dct:description a owl:DatatypeProperty ;
+  rdfs:domain meth:Methodology ;
+  rdfs:range rdf:langString ;
+  rdfs:label "description"@en ;
+  rdfs:comment "Human-readable definition/description of the methodology."@en .
+  
+meth:supersedes a owl:ObjectProperty ;
+  rdfs:domain meth:Methodology ;
+  rdfs:range meth:Methodology ;
+  rdfs:label "supersedes"@en .
 
-meth:isRealisedByVariable a owl:ObjectProperty ;
-  rdfs:domain impact:Indicator ;
-  rdfs:range meth:Variable ;
-  rdfs:label "is realised by variable"@en ;
-  rdfs:comment "Inverse relation linking an indicator to variables that operationalize it."@en .
-
+meth:supersededBy a owl:ObjectProperty ;
+  rdfs:domain meth:Methodology ;
+  rdfs:range meth:Methodology ;
+  rdfs:label "superseded by"@en ;
+  owl:inverseOf meth:supersedes .
+  
 
 meth:forIndicator a owl:ObjectProperty ;
   rdfs:domain meth:Methodology ;
@@ -155,6 +162,7 @@ meth:hasMethodology a owl:ObjectProperty ;
   rdfs:label "has methodology"@en ;
   rdfs:comment "Inverse helper so indicator catalogues can enumerate all compatible methodologies without bespoke queries."@en ;
   owl:inverseOf meth:forIndicator .
+  
 
 meth:hasApplicability a owl:ObjectProperty ;
   rdfs:domain meth:Methodology ;
@@ -166,6 +174,41 @@ meth:applicabilityOf a owl:ObjectProperty ;
   rdfs:domain meth:ApplicabilityCondition ;
   rdfs:range meth:Methodology ;
   rdfs:label "applicability of"@en .
+  
+meth:activityScope a owl:ObjectProperty ;
+  rdfs:domain meth:ApplicabilityCondition ;
+  rdfs:range aiao:Activity ;
+  rdfs:label "activity scope"@en .
+
+meth:environmentScope a owl:ObjectProperty ;
+  rdfs:domain meth:ApplicabilityCondition ;
+  rdfs:range aiao:Environment ;
+  rdfs:label "environment scope"@en ;
+  rdfs:comment "Environmental scope in which the methodology applies (e.g., forest, grassland, wetland, marine environment)."@en .
+
+meth:spatialScope a owl:ObjectProperty ;
+  rdfs:domain meth:ApplicabilityCondition ;
+  rdfs:range impact:SpatialLocation ;
+  rdfs:label "spatial scope"@en ;
+  rdfs:comment "Spatial applicability boundary using impact ontology location semantics."@en .
+
+meth:temporalScope a owl:ObjectProperty ;
+  rdfs:domain meth:ApplicabilityCondition ;
+  rdfs:range impact:TemporalLocation ;
+  rdfs:label "temporal scope"@en ;
+  rdfs:comment "Temporal applicability boundary using impact ontology time semantics."@en .
+  
+  
+meth:usesBaselineState a owl:ObjectProperty ;
+  rdfs:domain meth:Methodology ;
+  rdfs:range meth:BaselineState ;
+  rdfs:label "uses baseline state"@en .
+
+meth:usesProjectState a owl:ObjectProperty ;
+  rdfs:domain meth:Methodology ;
+  rdfs:range meth:ProjectState ;
+  rdfs:label "uses project state"@en .
+  
 
 meth:hasSemanticConstraint a owl:ObjectProperty ;
   rdfs:domain meth:Methodology ;
@@ -176,6 +219,26 @@ meth:hasVariableConstraint a owl:ObjectProperty ;
   rdfs:domain [ a owl:Class ; owl:unionOf ( meth:Methodology meth:EquationStep ) ] ;
   rdfs:range meth:VariableConstraint ;
   rdfs:label "has variable constraint"@en .
+  
+meth:validationShape a owl:ObjectProperty ;
+  rdfs:domain [ a owl:Class ; owl:unionOf ( meth:Methodology meth:SemanticConstraint meth:VariableConstraint ) ] ;
+  rdfs:range sh:NodeShape ;
+  rdfs:label "validation shape"@en ;
+  rdfs:comment "Links a methodology or constraint to the SHACL NodeShape that enforces its rules."@en .
+  
+  
+meth:hasValue a owl:ObjectProperty ;
+  rdfs:domain meth:Variable ;
+  rdfs:range meth:Value ;
+  rdfs:label "has value"@en ;
+  rdfs:comment "Links a variable to a measured or derived value assignment."@en .
+  
+meth:hasVariableRole a owl:ObjectProperty ;
+  rdfs:domain meth:Variable ;
+  rdfs:range meth:VariableRole ;
+  rdfs:label "has variable role"@en ;
+  rdfs:comment "Assigns a functional role to a methodology variable (or its symbol representation) within a specific methodology context."@en .
+  
 
 # Links methodologies to their computational steps; order comes from meth:sequenceNumber and/or meth:nextStep.
 meth:hasEquationStep a owl:ObjectProperty ;
@@ -188,6 +251,75 @@ meth:equationStepOf a owl:ObjectProperty ;
   rdfs:domain meth:EquationStep ;
   rdfs:range meth:Methodology ;
   rdfs:label "equation step of"@en .
+  
+meth:nextStep a owl:ObjectProperty ;
+  rdfs:domain meth:EquationStep ;
+  rdfs:range meth:EquationStep ;
+  rdfs:label "next step"@en ;
+  rdfs:comment "Creates an ordered chain of equations; the final step produces the indicator value."@en .
+
+meth:dependsOnStep a owl:ObjectProperty ;
+  rdfs:domain meth:EquationStep ;
+  rdfs:range meth:EquationStep ;
+  rdfs:label "depends on step"@en ;
+  rdfs:comment "Declares a dependency edge between equation steps for DAG-based execution plans."@en .
+  
+meth:usesConstant a owl:ObjectProperty ;
+  rdfs:domain [ a owl:Class ; owl:unionOf ( meth:Methodology meth:EquationStep ) ]  ;
+  rdfs:range meth:Constant ;
+  rdfs:label "has constant"@en .
+  
+meth:hasUncertaintyModel a owl:ObjectProperty ;
+  rdfs:domain [ a owl:Class ; owl:unionOf ( meth:Methodology meth:EquationStep meth:Constant ) ] ;
+  rdfs:range meth:UncertaintyModel ;
+  rdfs:label "has uncertainty model"@en .
+  
+# Output symbol produced by an equation step.
+meth:computes a owl:ObjectProperty ;
+  rdfs:domain meth:EquationStep ;
+  rdfs:range meth:Variable ;
+  rdfs:label "computes"@en .
+  
+  
+meth:realisesIndicator a owl:ObjectProperty ;
+  rdfs:domain meth:Variable ;
+  rdfs:range impact:Indicator ;
+  rdfs:label "realises indicator"@en ;
+  rdfs:comment "An indicator is a convention for indicating the state of an owl:Thing. A variable is a set of observations or derivations according to some convention, i.e., an indicator." ;
+  owl:inverseOf meth:isRealisedByVariable .
+
+meth:isRealisedByVariable a owl:ObjectProperty ;
+  rdfs:domain impact:Indicator ;
+  rdfs:range meth:Variable ;
+  rdfs:label "is realised by variable"@en ;
+  rdfs:comment "Inverse relation linking an indicator to variables that operationalize it."@en .
+
+meth:constrainsVariable a owl:ObjectProperty ;
+  rdfs:domain meth:VariableConstraint ;
+  rdfs:range meth:Variable ;
+  rdfs:label "constrains variable"@en .
+  
+
+meth:hasMonitoringRequirement a owl:ObjectProperty ;
+  rdfs:domain meth:Methodology ;
+  rdfs:range meth:MonitoringRequirement ;
+  rdfs:label "has monitoring requirement"@en .
+
+meth:hasDataQualityRequirement a owl:ObjectProperty ;
+  rdfs:domain meth:MonitoringRequirement ;
+  rdfs:range meth:DataQualityRequirement ;
+  rdfs:label "has data quality requirement"@en .
+
+meth:implementedBy a owl:ObjectProperty ;
+  rdfs:domain meth:Methodology ;
+  rdfs:range [ a owl:Class ; owl:unionOf ( aiao:Agent prov:SoftwareAgent ) ] ;
+  rdfs:label "implemented by"@en .
+
+  
+meth:semanticTarget a owl:ObjectProperty ;
+  rdfs:domain meth:SemanticConstraint ;
+  rdfs:range skos:Concept ;
+  rdfs:label "semantic target"@en .  
 
 meth:hasScaleClassification a owl:ObjectProperty ;
   rdfs:domain meth:Methodology ;
@@ -200,117 +332,34 @@ meth:hasActivityClassification a owl:ObjectProperty ;
   rdfs:range [ a owl:Class ; owl:unionOf ( skos:Concept aiao:Activity ) ] ;
   rdfs:label "has activity classification"@en ;
   rdfs:comment "Direct activity classification tag for methodology filtering; accepts SKOS concepts and activity resources for compatibility."@en .
-
-# Output symbol produced by an equation step.
-meth:computes a owl:ObjectProperty ;
-  rdfs:domain meth:EquationStep ;
-  rdfs:range meth:Variable ;
-  rdfs:label "computes"@en .
-
-meth:activityScope a owl:ObjectProperty ;
-  rdfs:domain meth:ApplicabilityCondition ;
-  rdfs:range aiao:Activity ;
-  rdfs:label "activity scope"@en .
-
-meth:territorialScope a owl:ObjectProperty ;
-  rdfs:domain meth:ApplicabilityCondition ;
-  rdfs:range prov:Location ;
-  rdfs:label "territorial scope"@en .
-
-meth:semanticTarget a owl:ObjectProperty ;
-  rdfs:domain meth:SemanticConstraint ;
-  rdfs:range skos:Concept ;
-  rdfs:label "semantic target"@en .
-
-# Links a variable constraint to the symbol it constrains.
-meth:constrainsVariable a owl:ObjectProperty ;
-  rdfs:domain meth:VariableConstraint ;
-  rdfs:range meth:Variable ;
-  rdfs:label "constrains variable"@en .
-
-meth:nextStep a owl:ObjectProperty ;
-  rdfs:domain meth:EquationStep ;
-  rdfs:range meth:EquationStep ;
-  rdfs:label "next step"@en ;
-  rdfs:comment "Creates an ordered chain of equations; the final step produces the indicator value."@en .
-
-meth:hasValueRole a owl:ObjectProperty ;
-  rdfs:domain meth:Variable ;
-  rdfs:range meth:ValueRole ;
-  rdfs:label "value role"@en .
-
-meth:validationShape a owl:ObjectProperty ;
-  rdfs:domain [ a owl:Class ; owl:unionOf ( meth:Methodology meth:SemanticConstraint meth:VariableConstraint ) ] ;
-  rdfs:range sh:NodeShape ;
-  rdfs:label "validation shape"@en ;
-  rdfs:comment "Links a methodology or constraint to the SHACL NodeShape that enforces its rules."@en .
-
-  meth:hasVersion a owl:DatatypeProperty ;
-  rdfs:domain meth:Methodology ;
-  rdfs:range xsd:string ;
-  rdfs:label "has version"@en .
-
-meth:supersedes a owl:ObjectProperty ;
-  rdfs:domain meth:Methodology ;
-  rdfs:range meth:Methodology ;
-  rdfs:label "supersedes"@en .
-
-meth:supersededBy a owl:ObjectProperty ;
-  rdfs:domain meth:Methodology ;
-  rdfs:range meth:Methodology ;
-  rdfs:label "superseded by"@en ;
-  owl:inverseOf meth:supersedes .
-
-meth:hasMonitoringRequirement a owl:ObjectProperty ;
-  rdfs:domain meth:Methodology ;
-  rdfs:range meth:MonitoringRequirement ;
-  rdfs:label "has monitoring requirement"@en .
-
-meth:usesConstant a owl:ObjectProperty ;
-  rdfs:domain [ a owl:Class ; owl:unionOf ( meth:Methodology meth:EquationStep ) ]  ;
-  rdfs:range meth:Constant ;
-  rdfs:label "has constant"@en .
-
-meth:dependsOnStep a owl:ObjectProperty ;
-  rdfs:domain meth:EquationStep ;
-  rdfs:range meth:EquationStep ;
-  rdfs:label "depends on step"@en ;
-  rdfs:comment "Declares a dependency edge between equation steps for DAG-based execution plans."@en .
-
+  
 meth:appliesToSector a owl:ObjectProperty ;
   rdfs:domain meth:Methodology ;
   rdfs:range skos:Concept ;
   rdfs:label "applies to sector"@en .
 
-meth:usesBaselineScenario a owl:ObjectProperty ;
-  rdfs:domain meth:Methodology ;
-  rdfs:range meth:BaselineScenario ;
-  rdfs:label "uses baseline scenario"@en .
-
-meth:usesProjectScenario a owl:ObjectProperty ;
-  rdfs:domain meth:Methodology ;
-  rdfs:range meth:ProjectScenario ;
-  rdfs:label "uses project scenario"@en .
-
-meth:hasDataQualityRequirement a owl:ObjectProperty ;
-  rdfs:domain meth:MonitoringRequirement ;
-  rdfs:range meth:DataQualityRequirement ;
-  rdfs:label "has data quality requirement"@en .
-
-meth:implementedBy a owl:ObjectProperty ;
-  rdfs:domain meth:Methodology ;
-  rdfs:range [ a owl:Class ; owl:unionOf ( prov:SoftwareAgent prov:Plan ) ] ;
-  rdfs:label "implemented by"@en .
-
-meth:hasUncertaintyModel a owl:ObjectProperty ;
-  rdfs:domain [ a owl:Class ; owl:unionOf ( meth:Methodology meth:EquationStep meth:Constant ) ] ;
-  rdfs:range meth:UncertaintyModel ;
-  rdfs:label "has uncertainty model"@en .
 
 #################################################################
 # Datatype properties
 #################################################################
 
+dct:source a owl:ObjectProperty ;
+  rdfs:domain meth:Methodology ;
+  rdfs:range rdfs:Resource ;
+  rdfs:label "source"@en ;
+  rdfs:comment "Authoritative source for the methodology definition (e.g., UNFCCC CDM, Gold Standard, Verra)."@en .
+  
+meth:hasVersion a owl:DatatypeProperty ;
+  rdfs:domain meth:Methodology ;
+  rdfs:range xsd:string ;
+  rdfs:label "has version"@en .
+  
+meth:methodCode a owl:DatatypeProperty ;
+  rdfs:domain [ a owl:Class ; owl:unionOf ( meth:MethodologyFamily meth:Methodology ) ] ;
+  rdfs:range xsd:string ;
+  rdfs:label "method code"@en .
+  
+  
 meth:validFrom a owl:DatatypeProperty ;
   rdfs:domain [ a owl:Class ; owl:unionOf ( meth:ApplicabilityCondition meth:Methodology) ];
   rdfs:range xsd:date ;
@@ -320,12 +369,8 @@ meth:validThrough a owl:DatatypeProperty ;
   rdfs:domain [ a owl:Class ; owl:unionOf ( meth:ApplicabilityCondition meth:Methodology) ];
   rdfs:range xsd:date ;
   rdfs:label "valid through"@en .
-
-meth:constraintNote a owl:DatatypeProperty ;
-  rdfs:domain [ a owl:Class ; owl:unionOf ( meth:SemanticConstraint meth:VariableConstraint ) ] ;
-  rdfs:range xsd:string ;
-  rdfs:label "constraint note"@en .
-
+  
+  
 meth:minValue a owl:DatatypeProperty ;
   rdfs:domain meth:VariableConstraint ;
   rdfs:range xsd:decimal ;
@@ -334,22 +379,28 @@ meth:minValue a owl:DatatypeProperty ;
 meth:maxValue a owl:DatatypeProperty ;
   rdfs:domain meth:VariableConstraint ;
   rdfs:range xsd:decimal ;
-  rdfs:label "maximum value"@en .
+  rdfs:label "maximum value"@en . 
+
+meth:constraintNote a owl:DatatypeProperty ;
+  rdfs:domain [ a owl:Class ; owl:unionOf ( meth:SemanticConstraint meth:VariableConstraint ) ] ;
+  rdfs:range xsd:string ;
+  rdfs:label "constraint note"@en .
+  
 
 meth:sequenceNumber a owl:DatatypeProperty ;
   rdfs:domain meth:EquationStep ;
   rdfs:range xsd:positiveInteger ;
   rdfs:label "sequence number"@en .
 
-meth:methodCode a owl:DatatypeProperty ;
-  rdfs:domain [ a owl:Class ; owl:unionOf ( meth:MethodologyFamily meth:Methodology ) ] ;
-  rdfs:range xsd:string ;
-  rdfs:label "method code"@en .
-
 meth:formulaId a owl:DatatypeProperty ;
   rdfs:domain meth:EquationStep ;
   rdfs:range xsd:string ;
   rdfs:label "formula id"@en .
+
+meth:defaultValue a owl:DatatypeProperty ;
+  rdfs:domain meth:Constant ;
+  rdfs:range xsd:decimal ;
+  rdfs:label "default value"@en .
 
 meth:uncertaintyValue a owl:DatatypeProperty ;
   rdfs:domain meth:UncertaintyModel ;
@@ -362,10 +413,28 @@ meth:uncertaintyType a owl:ObjectProperty ;
   rdfs:label "uncertainty type"@en ;
   rdfs:comment "Examples include absolute, relative, confidenceInterval95."@en .
 
-meth:defaultValue a owl:DatatypeProperty ;
-  rdfs:domain meth:Constant ;
-  rdfs:range xsd:decimal ;
-  rdfs:label "default value"@en .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

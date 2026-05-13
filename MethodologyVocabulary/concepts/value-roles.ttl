@@ -5,26 +5,28 @@
 @prefix meth: <http://independentimpact.org/methodology/> .
 
 <http://independentimpact.org/methodology/vocab/concepts/value-roles> a owl:Ontology ;
-  dct:title "Methodology value roles"@en ;
-  dct:description "SKOS concept scheme for symbol value roles used in methodology equations."@en ;
+  dct:title "Methodology variable roles"@en ;
+  dct:description "SKOS concept scheme for variable roles used in methodology equations and reporting."@en ;
   dct:issued "2026-04-10"^^xsd:date .
 
-meth:ValueRoleScheme a skos:ConceptScheme ;
-  skos:prefLabel "Methodology value roles"@en ;
-  skos:definition "Controlled vocabulary for symbol roles in equation execution and reporting."@en .
+meth:VariableRoleScheme a skos:ConceptScheme ;
+  skos:prefLabel "Methodology variable roles"@en ;
+  skos:definition "Controlled vocabulary for methodology variable roles in equation execution and reporting."@en .
 
-meth:MeasuredInput a meth:ValueRole, skos:Concept ;
-  skos:inScheme meth:ValueRoleScheme ;
+meth:MeasuredInput a meth:VariableRole, skos:Concept ;
+  skos:inScheme meth:VariableRoleScheme ;
   skos:prefLabel "Measured input"@en ;
   skos:definition "A directly observed or externally supplied value consumed by equation steps."@en .
 
-meth:DerivedOutput a meth:ValueRole, skos:Concept ;
-  skos:inScheme meth:ValueRoleScheme ;
+meth:DerivedOutput a meth:VariableRole, skos:Concept ;
+  skos:inScheme meth:VariableRoleScheme ;
   skos:prefLabel "Derived output"@en ;
   skos:definition "A value computed by one equation step and potentially reused by subsequent steps."@en .
 
-meth:ReportedOutput a meth:ValueRole, skos:Concept ;
-  skos:inScheme meth:ValueRoleScheme ;
+meth:ReportedOutput a meth:VariableRole, skos:Concept ;
+  skos:inScheme meth:VariableRoleScheme ;
   skos:prefLabel "Reported output"@en ;
   skos:definition "The final methodology result reported as the indicator value for a period."@en ;
   skos:broader meth:DerivedOutput .
+
+
