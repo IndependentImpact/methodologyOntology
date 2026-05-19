@@ -82,7 +82,7 @@ MethOnt builds on the following standard vocabularies:
 | `meth:hasMonitoringRequirement` | `Methodology → MonitoringRequirement` | Attaches monitoring obligations. |
 | `meth:usesConstant` | `Methodology/EquationStep → Constant` | Attaches fixed coefficients. |
 | `meth:hasUncertaintyModel` | `Methodology/EquationStep/Constant → UncertaintyModel` | Attaches uncertainty descriptions. |
-| `meth:implementedBy` | `Methodology → prov:SoftwareAgent/prov:Plan` | Links to a software or process implementation. |
+| `meth:implementedBy` | `Methodology → aiao:Agent/prov:SoftwareAgent` | Links a methodology to the implementing agent or software system. |
 
 ### Key Datatype Properties
 
@@ -202,5 +202,6 @@ This repository now contains three methodology modules as folders:
 3. Confirm updated methont.owl, methont.jsonld, and docs/methont.html.
 4. Update version metadata in methont.ttl when applicable.
 5. Commit and tag release.
+
 
 

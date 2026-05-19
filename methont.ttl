@@ -78,25 +78,9 @@ meth:Constant a owl:Class ;
   skos:definition "A fixed quantity used by a methodology or equation step, e.g., a default GWP value."@en .
 
 meth:Variable a owl:Class ;
-  rdfs:subClassOf ind:Symbol ;
   rdfs:label "Variable"@en ;
   skos:definition "A methodology variable that represents a quantity to be measured or computed and can realize an indicator through its assigned values."@en .
 
-meth:Value a owl:Class ;
-  rdfs:label "Value"@en ;
-  skos:definition "A value assignment associated with a variable in a methodology context."@en .
-
-meth:MeasuredValue a owl:Class ;
-  rdfs:subClassOf meth:Value ;
-  rdfs:label "Measured value"@en ;
-  skos:definition "A value obtained by observation, monitoring, sampling, or metering."@en .
-
-meth:DerivedValue a owl:Class ;
-  rdfs:subClassOf meth:Value ;
-  rdfs:label "Derived value"@en ;
-  skos:definition "A value computed or inferred from other values using methodology equations or rules."@en .
-
-meth:MeasuredValue owl:disjointWith meth:DerivedValue .
 
 meth:VariableRole a owl:Class ;
   rdfs:label "Variable role"@en ;
@@ -227,11 +211,6 @@ meth:validationShape a owl:ObjectProperty ;
   rdfs:comment "Links a methodology or constraint to the SHACL NodeShape that enforces its rules."@en .
   
   
-meth:hasValue a owl:ObjectProperty ;
-  rdfs:domain meth:Variable ;
-  rdfs:range meth:Value ;
-  rdfs:label "has value"@en ;
-  rdfs:comment "Links a variable to a measured or derived value assignment."@en .
   
 meth:hasVariableRole a owl:ObjectProperty ;
   rdfs:domain meth:Variable ;
@@ -412,6 +391,8 @@ meth:uncertaintyType a owl:ObjectProperty ;
   rdfs:range skos:Concept ;
   rdfs:label "uncertainty type"@en ;
   rdfs:comment "Examples include absolute, relative, confidenceInterval95."@en .
+
+
 
 
 
