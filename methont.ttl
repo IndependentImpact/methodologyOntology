@@ -43,11 +43,13 @@ meth:ApplicabilityCondition a owl:Class ;
 
 meth:SemanticConstraint a owl:Class ;
   rdfs:subClassOf sh:NodeShape ;
+  rdfs:subClassOf aiao:Control ;
   rdfs:label "Semantic constraint"@en ;
   skos:definition "Qualitative rule that restricts the applicability of a methodology (e.g., facility classification, compliance status)."@en .
 
 meth:VariableConstraint a owl:Class ;
   rdfs:subClassOf sh:NodeShape ;
+  rdfs:subClassOf aiao:Control ;
   rdfs:label "Variable constraint"@en ;
   skos:definition "Quantitative bound or validation rule applied to a measured or computed variable."@en .
 
@@ -97,7 +99,7 @@ meth:UncertaintyModel a owl:Class ;
   
 meth:MonitoringRequirement a owl:Class ;
   rdfs:label "Monitoring requirement"@en ;
-  skos:definition "A requirement describing what varables should be measured, how variables must be sampled, measured, or verified during implementation."@en .
+  skos:definition "A requirement describing what variables should be measured, how variables must be sampled, measured, or verified during implementation."@en .
 
 meth:MonitoringFrequency a owl:Class ;
   rdfs:subClassOf meth:MonitoringRequirement ;
@@ -116,7 +118,8 @@ meth:MinimumDataCoverage a owl:Class ;
 # Object properties
 #################################################################
 
-dct:description a owl:DatatypeProperty ;
+meth:methodologyDescription a owl:DatatypeProperty ;
+  rdfs:subClassOf dct:description ;
   rdfs:domain meth:Methodology ;
   rdfs:range rdf:langString ;
   rdfs:label "description"@en ;
@@ -322,7 +325,8 @@ meth:appliesToSector a owl:ObjectProperty ;
 # Datatype properties
 #################################################################
 
-dct:source a owl:ObjectProperty ;
+meth:hasMethodologySource a owl:ObjectProperty ;
+  rdfs:SubClassOf dct:source;
   rdfs:domain meth:Methodology ;
   rdfs:range rdfs:Resource ;
   rdfs:label "source"@en ;
